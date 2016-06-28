@@ -1,0 +1,111 @@
+﻿<#@ template language="C#" hostSpecific="true" debug="true" #>
+<#@ include file="$(SolutionDir)SolutionItems\T4Helper.tt" #>
+<#@ assembly name="EnvDTE" #>
+<#@ Import Namespace="EnvDTE" #>
+<#@ Import Namespace="System.Collections" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import namespace="System.Linq" #>
+<#	
+var projectItems = GetProjectItems(this);
+var elements = CodeElementsInProjectItems(projectItems);
+var classes = GetClassesWithAttribute(elements, "GenerateSyncMethodsAttribute");#>
+using System;
+using System.Runtime.Serialization;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.ServiceModel;
+
+<#
+foreach(var clazz in classes)
+{
+
+	GenerateClass(clazz);
+}
+#>
+<#+
+
+
+
+private void GenerateClass(CodeClass clazz)
+{
+
+
+
+	string classNamespace = clazz.Namespace.Name;
+	string className =  clazz.Name;
+	   
+	bool classRaisesPropertyChanged = false;
+
+		//string serviceName = Attributes(clazz).FirstOrDefault(aa=>aa.Name =="GenerateSyncMethod").Value;
+
+#>
+
+
+<#+ 
+	//placeholder
+#>
+
+namespace <#= classNamespace #>
+{
+	public partial class <#= className #>
+	{
+		<#+ 
+	  
+		foreach (var variable in Functions(clazz))
+		{
+		
+			if (Attributes(variable).Where(a=>a.FullName.EndsWith("GenerateSyncMethodAttribute")).Count() == 0)
+				continue;
+
+			string variableName = variable.Name;
+
+			string variableType = variable.Type.AsString;
+
+			if (variableType.StartsWith("System.Threading.Tasks.Task<"))
+			{
+				variableType = variableType.Replace("System.Threading.Tasks.Task<","");
+				variableType = variableType.TrimEnd('>');
+			}
+		   
+
+		
+
+			List<string> functionParameters= new List<string>();
+			List<string> parameterNames= new List<string>();
+			var syncName = "";
+
+				if (variableName.Contains("Async"))
+					syncName = variableName.Replace("Async", "");
+				else
+					syncName = variableName + "Sync";
+
+			foreach (CodeParameter param in variable.Parameters)
+			{
+				functionParameters.Add(
+					string.Format("{0} {1}", param.Type.AsString, param.Name));
+				parameterNames.Add(param.Name);
+				 //TextPoint start = param.GetStartPoint(vsCMPart.vsCMPartWhole);
+				 //TextPoint finish = param.GetEndPoint(vsCMPart.vsCMPartWhole);
+				 //parms += start.CreateEditPoint().GetText(finish) + Environment.NewLine;
+			}
+
+
+		#>
+public <#= variableType#> <#= syncName#>(<#= string.Join(", ", functionParameters.ToList()) #>)
+		{
+			return <#= variableName#>(<#= string.Join(", ", parameterNames) #> ).Result;
+		}
+			<#+
+
+			//test
+
+		} 	
+		#> 
+	}
+}
+<#+
+}
+#>

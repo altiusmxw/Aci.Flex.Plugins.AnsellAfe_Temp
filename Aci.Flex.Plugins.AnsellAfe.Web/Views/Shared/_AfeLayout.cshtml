@@ -1,0 +1,15 @@
+﻿@{
+#if DEBUG
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Styles/afe.css?v=1.0")" />
+#else
+    Layout = null;
+    <script src="@Url.Content("~/Scripts/sweetalert2.min.js")"></script>
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Resources/Styles/Aci.Flex.Plugins.AnsellAfe.Web.Styles.afe.css")" />
+#endif
+}
+<div class="row">
+    <div class="col-md-12">
+        @RenderBody()
+    </div>
+</div>

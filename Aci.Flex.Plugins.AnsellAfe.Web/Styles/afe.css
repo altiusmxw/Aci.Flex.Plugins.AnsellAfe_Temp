@@ -1,0 +1,265 @@
+﻿/*.box-content {
+    margin: 15px;
+}
+
+    .box-content .action-nav-normal .action-nav-button {
+        margin: 0;
+    }*/
+.float-left {
+    float: left;
+}
+
+.action-nav-normal .action-nav-button:last-of-type {
+    padding-right: 15px;
+}
+
+.btn-table-action {
+    float: left;
+}
+
+    .btn-table-action:not(:first-of-type) {
+        margin-left: 8px;
+    }
+
+    .btn-table-action i {
+        padding: 4px 8px 0 0;
+    }
+
+.afe-tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.invalid-afe {
+    border-top: 1px solid red !important;
+    border-left: 1px solid red !important;
+    border-right: 1px solid red !important;
+    background-color: rgba(255, 0, 0, 0.05);
+}
+
+.valid-afe {
+    border-top: 1px solid #00e000 !important;
+    border-left: 1px solid #00e000 !important;
+    border-right: 1px solid #00e000 !important;
+    background-color: rgba(0, 224, 0, 0.05);
+}
+
+.validation-category {
+    font-size: 14px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+    .validation-category > i {
+        padding-right: 10px;
+    }
+
+.validation-details {
+    font-size: 12px;
+    padding: 8px 0 0 20px;
+    width: 250px;
+    margin: auto;
+    text-align: left;
+}
+
+    .validation-details > ol {
+        padding-left: 20px;
+        padding-top: 8px;
+    }
+
+.afe-tab-icon {
+    top: 3px;
+    right: 5px;
+    font-size: 0.9em;
+    position: absolute;
+    cursor: pointer;
+}
+
+.afe-group-row {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.afe-group-outer {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.afe-group {
+    border: 1px solid #ddd;
+    height: 100%;
+    padding-bottom: 10px;
+}
+
+    .afe-group .box {
+        border: none;
+        margin: 0;
+        height: 100%;
+    }
+
+    .afe-group .box-content {
+        padding: 10px;
+    }
+
+    .afe-group h5 {
+        text-align: center;
+    }
+
+textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    min-height: 50px;
+    padding: 8px;
+    line-height: 18px;
+}
+
+.data-value {
+    font-weight: normal;
+    padding-top: 7px;
+}
+
+.btn-data-value {
+    padding-top: 6px;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.afe-table {
+    margin: 0;
+}
+
+    .afe-table th {
+        *zoom: 1;
+        background: #eaeaea;
+        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZkZmRmZCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VhZWFlYSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+        background-size: 100%;
+        text-shadow: 0 1px white;
+        border-bottom: 1px solid #cdcdcd;
+        color: #636363;
+        font-weight: 600;
+        /*background-color: #ddd;*/
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .afe-table .sub-header {
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .afe-table td:not(:last-of-type),
+    .afe-table th:not(:last-of-type) {
+        border-right: 1px solid #aaa;
+    }
+
+    .afe-table tfoot tr td {
+        border-top: 1px solid #aaa;
+        font-weight: 600;
+    }
+
+#afe-allocations tfoot td:not(:last-of-type) {
+    border-right: 1px solid #aaa;
+}
+
+#afe-allocations tbody td:first-of-type,
+#afe-allocations tbody td:last-of-type {
+    border-right: none;
+}
+
+#total-investment th {
+    width: 50%;
+}
+
+input[type='text'],
+input[type='email'] {
+    width: 250px;
+}
+
+input.cost,
+input.working-interest {
+    width: 100px;
+}
+
+input.working-interest {
+    text-align: right;
+}
+
+input.month {
+    width: 50px;
+    text-align: right;
+}
+
+#btnRequestAdditionalApproval {
+    color: #5f5f5f;
+}
+
+.total-cost {
+    float: right;
+}
+
+.modal-add-partner {
+    width: 600px;
+    overflow: visible !important;
+    top: 200px !important;
+}
+
+.required {
+    color: #d9534f;
+}
+
+input.value-prop {
+    width: 100px !important;
+}
+
+.vp-data {
+    text-align: right;
+}
+
+.disabled-section {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(200, 200, 200, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
+
+.disabled-costs {
+    padding-top: 20px;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.base-account {
+    /*font-weight: bold !important;*/
+    border-top: 1px solid #aaa !important;
+    border-bottom: 1px solid #aaa !important;
+}
+
+a.show-link {
+    text-decoration: underline !important;
+}
+a.show-link:hover {
+    text-decoration: none !important;
+}
+
+input.upper { text-transform: uppercase; }
+
+.afe-financial-data-entry {
+    background-color: lightgray;
+    text-align: right;
+}

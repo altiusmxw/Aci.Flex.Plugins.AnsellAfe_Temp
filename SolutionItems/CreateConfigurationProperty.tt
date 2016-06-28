@@ -1,0 +1,99 @@
+﻿<#@ template language="C#" hostSpecific="true" debug="true" #>
+<#@ include file="$(SolutionDir)SolutionItems\T4Helper.tt" #>
+<#@ assembly name="EnvDTE" #>
+<#@ Import Namespace="EnvDTE" #>
+<#@ Import Namespace="System.Collections" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import namespace="System.Linq" #>
+<#	
+var projectItems = GetProjectItems(this);
+var elements = CodeElementsInProjectItems(projectItems);
+var classes = GetClassesWithAttribute(elements,"FlexConfigurationClassAttribute");
+#>
+using System;
+using System.Runtime.Serialization;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows;
+using System.Collections.Generic;
+
+<#
+foreach(var clazz in classes)
+{
+	GenerateClass(clazz);
+}
+#>
+<#+
+
+private IEnumerable<CodeVariable> GetConfigurationFields(CodeClass codeClass)
+{
+	foreach (var variable in Variables(codeClass))
+	{
+		if (Attributes(variable).Where(a=>a.FullName.EndsWith("ParameterDescriptorAttribute")).Count() > 0)
+			yield return variable;		
+	}
+}
+
+private void GenerateClass(CodeClass clazz)
+{
+	string classNamespace = clazz.Namespace.Name;
+	string className =  clazz.Name;
+
+	bool classRaisesPropertyChanged = false;
+
+#>
+
+
+<#+ 
+	foreach (var variable in GetConfigurationFields(clazz))
+	{
+#>
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields", Scope = "member", Target = "Aci.Flex.Core.Configuration.ModelConfiguration.#<#= variable.Name #>")]
+<#+
+}
+#>
+
+namespace <#= classNamespace #>
+{
+	
+	public partial class <#= className #>
+	{
+		<#+ 
+
+	foreach (var variable in GetConfigurationFields(clazz))
+	{
+		
+		string variableName = variable.Name;
+		string variableType = variable.Type.AsFullName;		
+		
+		foreach (var attribute in Attributes(variable).Where(a=>a.FullName.EndsWith("ParameterDescriptorAttribute")))
+		{
+			string[] attributeValues = attribute.Value.Split(',');
+			string propertyName = attributeValues[0].Trim().Replace("\"","");
+			
+			
+		#>
+public <#= variableType#> <#= propertyName #>
+		{
+			get
+			{
+				return GetConfigurationValue<<#= variableType#>>("<#= variableName #>");					
+			}
+			set
+			{
+				<#= variableName #> = value;
+				AddOrSet("<#= variableName #>", value);					
+			}
+		}
+			<#+                
+			//placeholder
+			#>        		
+		<#+
+	}		
+	} // end foreach dps	
+	#> 
+	}
+}
+<#+
+}
+#>

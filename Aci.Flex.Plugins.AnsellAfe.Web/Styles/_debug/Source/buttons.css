@@ -1,0 +1,141 @@
+/* line 39, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+.btn {
+  color: #fff;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 600;
+  text-shadow: 0 -1px #6f6f6f; }
+  /* line 48, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+  .btn:hover, .btn:active, .btn:focus {
+    color: #fff; }
+  /* line 52, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+  .btn.btn-full {
+    display: block; }
+  /* line 56, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+  .btn.btn-default {
+    color: #686868;
+    text-shadow: none; }
+    /* line 60, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+    .btn.btn-default:hover, .btn.btn-default:active {
+      color: #505050; }
+    /* line 64, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+    .btn.btn-default .caret {
+      border-top: 4px solid black; }
+  /* line 69, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+  .btn .caret {
+    border-top: 4px solid white; }
+  /* line 73, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+  .btn.btn-lg {
+    font-size: 12px; }
+  /* line 78, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+  .btn.btn-default {
+    border: 1px solid #d4d4d4;
+    -webkit-box-shadow: inset 0 1px 2px white;
+    -moz-box-shadow: inset 0 1px 2px white;
+    box-shadow: inset 0 1px 2px white;
+    background: #e9e9e9;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZkZmRmZCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U5ZTllOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fdfdfd), color-stop(100%, #e9e9e9));
+    background-image: -webkit-linear-gradient(top, #fdfdfd, #e9e9e9);
+    background-image: -moz-linear-gradient(top, #fdfdfd, #e9e9e9);
+    background-image: -o-linear-gradient(top, #fdfdfd, #e9e9e9);
+    background-image: linear-gradient(top, #fdfdfd, #e9e9e9); }
+    /* line 9, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+    .btn.btn-default:hover {
+      background: #e6e6e6;
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZkZmRmZCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U2ZTZlNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+      background-size: 100%;
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fdfdfd), color-stop(100%, #e6e6e6));
+      background-image: -webkit-linear-gradient(top, #fdfdfd, #e6e6e6);
+      background-image: -moz-linear-gradient(top, #fdfdfd, #e6e6e6);
+      background-image: -o-linear-gradient(top, #fdfdfd, #e6e6e6);
+      background-image: linear-gradient(top, #fdfdfd, #e6e6e6);
+      -webkit-transition: box-shadow 0.05s ease-in-out;
+      -moz-transition: box-shadow 0.05s ease-in-out;
+      -o-transition: box-shadow 0.05s ease-in-out;
+      transition: box-shadow 0.05s ease-in-out; }
+    /* line 14, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+    .btn.btn-default:active {
+      background: #f3f3f3;
+      border-color: #cfcfcf;
+      -webkit-box-shadow: 0 0 5px #f3f3f3 inset;
+      -moz-box-shadow: 0 0 5px #f3f3f3 inset;
+      box-shadow: 0 0 5px #f3f3f3 inset; }
+  /* line 78, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+  
+/* line 85, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+.btn-group.open .btn.btn-default.dropdown-toggle {
+  background-color: #fdfdfd; }
+
+/* line 90, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+.btn-group.btn.btn-lg {
+  padding: 8px 10px; }
+
+/* line 94, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+button.btn {
+  font-weight: 600; }
+
+/* line 98, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+.btn-group > .btn, .btn-group > .dropdown-menu {
+  font-size: 12px; }
+
+/* line 102, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+.caret {
+  opacity: 0.6; }
+
+/* line 107, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+.btn-xs .caret, .btn-sm .caret, .btn-lg .caret {
+  margin-top: 8px;
+  margin-left: 4px; }
+
+/* line 112, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+.dropdown-menu .divider {
+  border-top: none !important; }
+
+/* line 117, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+.btn i {
+  vertical-align: middle; }
+
+/* line 126, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+.btn-group > .btn:first-child {
+  margin-left: 0;
+  -moz-border-radius-topleft: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-top-left-radius: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  border-bottom-left-radius: 2px; }
+
+/* line 133, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+.btn-group > .btn:last-child,
+.btn-group > .dropdown-toggle {
+  -moz-border-radius-topright: 2px;
+  -webkit-border-top-right-radius: 2px;
+  border-top-right-radius: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  border-bottom-right-radius: 2px; }
+
+/* line 138, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+.btn-group > .btn.large:first-child {
+  -moz-border-radius-topleft: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-top-left-radius: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  border-bottom-left-radius: 2px; }
+
+/* line 143, /home/andrei/core-admin-release/core-admin/source/stylesheets/buttons.scss */
+.btn-group > .btn.large:last-child,
+.btn-group > .large.dropdown-toggle {
+  -moz-border-radius-topright: 2px;
+  -webkit-border-top-right-radius: 2px;
+  border-top-right-radius: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  border-bottom-right-radius: 2px; }

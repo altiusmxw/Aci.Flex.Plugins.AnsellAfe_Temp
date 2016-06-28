@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns = "http:/schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~" title="Flex" iconClass="fa fa-home">
+    <siteMapNode title = "Home" url="~/default.aspx" iconClass="fa fa-home" resourceKey="siteMapNode_Home" />
+
+    <siteMapNode title = "AFE Capture" url="~/AfeCapture/new" roles="Initiator" iconClass="fa fa-table" />
+    <siteMapNode title = "Workflow" url="~/workflow" iconClass="fa fa-code-fork" />
+    <siteMapNode title = "My Drafts" url="~/MyDrafts" iconClass="fa fa-pencil-square-o" />
+
+    <siteMapNode title = "Reports" url="~/Reports" iconClass="fa fa-bar-chart-o"/>
+
+    <siteMapNode title = "Administration" roles="Administrator,Superuser" iconClass="fa fa-cogs">
+      <siteMapNode title = "Users" url="~/Admin/Users" roles="Superuser" iconClass="fa fa-user" />
+      <siteMapNode title = "Content Manager" url="~/Admin/ContentManager.aspx" roles="Administrator" iconClass="fa fa-edit"/>
+      <siteMapNode title = "Hierarchy Mapping" url="~/Admin/HierarchyMapping" roles="Administrator" iconClass="fa fa-arrows-h"/>
+      <siteMapNode title = "Report Servers" url="~/Admin/ReportServers" roles="Administrator" iconClass="fa fa-database"/>
+      <siteMapNode title = "Report Definitions" url="~/Admin/ReportDefinitions" roles="Administrator" iconClass="fa fa-bar-chart-o"/>
+      <siteMapNode title = "Dimensions" url="~/Admin/Dimensions" roles="Administrator" iconClass="fa fa-cube"/>
+      <siteMapNode title = "Storage Providers" url="~/Admin/StorageProviders" roles="Administrator" iconClass="fa fa-floppy-o"/>
+      
+      <siteMapNode title = "Job Manager" url="~/Admin/Jobs.aspx" roles="Superuser" iconClass="fa fa-clock-o"/>
+
+      <siteMapNode title = "Workflows" url="~/Admin/Workflows" roles="Administrator" iconClass="fa fa-code-fork"/>
+      <siteMapNode title = "Workbooks" url="~/Admin/Workbooks" roles="Administrator" iconClass="fa fa-table"/>
+      <siteMapNode title = "Events" url="~/Admin/Events.aspx" roles="Administrator" iconClass="fa fa-calendar" />
+      <siteMapNode title = "Submissions" url="~/Admin/SubmissionPeriods.aspx" roles="Administrator" iconClass="fa fa-tasks" />      
+      <siteMapNode title = "Model Settings" url="~/Admin/ModelConfiguration.aspx" roles="Superuser" iconClass="fa fa-cog"/>
+
+      <siteMapNode title = "Licenses" url="~/Admin/Licenses" roles="Administrator" iconClass="fa fa-file-text-o"/>
+
+    </siteMapNode>
+    <siteMapNode title = "Help" url="~/help.aspx" iconClass="fa fa-question">
+      <siteMapNode title = "Documentation" url="~/documentation" iconClass="fa fa-book" />
+    </siteMapNode>
+
+  </siteMapNode>
+</siteMap>

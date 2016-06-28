@@ -1,0 +1,100 @@
+﻿<#@ template language="C#" hostSpecific="true" debug="true" #>
+<#@ include file="$(SolutionDir)SolutionItems\T4Helper.tt" #>
+<#@ include file="$(SolutionDir)SolutionItems\Manager.ttinclude" #>
+<#@ assembly name="EnvDTE" #>
+<#@ Import Namespace="EnvDTE" #>
+<#@ Import Namespace="System.Collections" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import namespace="System.Linq" #>
+
+<#    var manager = Manager.Create(Host, GenerationEnvironment); #>
+
+<#	
+var projectItems = GetProjectItems(this);
+var elements = CodeElementsInProjectItems(projectItems);
+var classes = GetInterfacesWithAttribute(elements, "GenerateAsyncServiceInterface");
+
+foreach(var clazz in classes)
+{
+ 
+		var fileName = String.Format("{0}Async.cs", clazz.Name);
+		manager.StartNewFile(fileName);
+
+		#>
+using System;
+using System.Runtime.Serialization;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.ServiceModel;
+
+<#
+
+		GenerateClass(clazz);
+		 manager.EndBlock();
+
+}
+ manager.Process(true);
+#>
+<#+
+
+
+
+private void GenerateClass(CodeInterface clazz)
+{
+	string classNamespace = clazz.Namespace.Name;
+		string className =  clazz.Name;
+	bool classRaisesPropertyChanged = false;
+
+		string serviceName= Attributes(clazz).FirstOrDefault(aa=>aa.Name =="GenerateAsyncServiceInterface").Value;
+
+#>
+
+
+<#+ 
+	//placeholder
+#>
+
+namespace <#= classNamespace #>
+{
+	[ServiceContract(Name = <#= serviceName #>)]
+	public partial interface <#= className #>Async :  <#= className #>
+	{
+		<#+ 
+	  
+		foreach (var variable in Functions(clazz))
+		{
+		
+			string variableName = variable.Name;
+			string variableType = variable.Type.AsString;			
+			List<string> functionParameters= new List<string>();
+
+			foreach (CodeParameter param in variable.Parameters)
+			{
+				functionParameters.Add(
+					string.Format("{0} {1}", param.Type.AsString, param.Name));
+				 //TextPoint start = param.GetStartPoint(vsCMPart.vsCMPartWhole);
+				 //TextPoint finish = param.GetEndPoint(vsCMPart.vsCMPartWhole);
+				 //parms += start.CreateEditPoint().GetText(finish) + Environment.NewLine;
+			}
+
+			string returnType = variableType == "void" ? "Task" : string.Format("Task<{0}>", variableType);
+
+		#>
+[OperationContract]
+			[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
+			<#= returnType#> <#= variableName#>Async(<#= string.Join(",", functionParameters.ToList()) #>);
+
+			<#+
+
+			//test
+
+		} 	
+		#> 
+	}
+}
+<#+
+}
+#>

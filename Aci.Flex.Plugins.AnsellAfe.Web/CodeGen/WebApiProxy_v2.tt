@@ -1,0 +1,1 @@
+﻿<#@ include file="$(SolutionDir)\SolutionItems\WebApiProxy_v2.tt" #>

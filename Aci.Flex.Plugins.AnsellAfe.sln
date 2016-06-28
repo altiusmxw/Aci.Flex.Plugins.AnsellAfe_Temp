@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aci.Flex.Plugins.AnsellAfe.Server", "Aci.Flex.Plugins.AnsellAfe.Server\Aci.Flex.Plugins.AnsellAfe.Server.csproj", "{057ED1F8-ABC1-4F81-A3DD-69E4E9340DBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aci.Flex.Plugins.AnsellAfe.Web", "Aci.Flex.Plugins.AnsellAfe.Web\Aci.Flex.Plugins.AnsellAfe.Web.csproj", "{B2E880EA-F325-4370-9113-437818689E41}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{AC5A8437-8639-4ADB-AD81-76A3F67080D4}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionItems\CreateConfigurationProperty.tt = SolutionItems\CreateConfigurationProperty.tt
+		SolutionItems\Manager.ttinclude = SolutionItems\Manager.ttinclude
+		SolutionItems\SharedAssemblyInfo.cs = SolutionItems\SharedAssemblyInfo.cs
+		SolutionItems\T4Helper.tt = SolutionItems\T4Helper.tt
+		SolutionItems\WebApiProxy_v2.tt = SolutionItems\WebApiProxy_v2.tt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{057ED1F8-ABC1-4F81-A3DD-69E4E9340DBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{057ED1F8-ABC1-4F81-A3DD-69E4E9340DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{057ED1F8-ABC1-4F81-A3DD-69E4E9340DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{057ED1F8-ABC1-4F81-A3DD-69E4E9340DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2E880EA-F325-4370-9113-437818689E41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E880EA-F325-4370-9113-437818689E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2E880EA-F325-4370-9113-437818689E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2E880EA-F325-4370-9113-437818689E41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

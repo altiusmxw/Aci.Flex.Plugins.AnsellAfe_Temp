@@ -1,0 +1,65 @@
+declare var showLoader: any;
+declare class DynamicWorkflowColumn {
+    Name: string;
+    Id: string;
+}
+declare class WorkflowStatusViewModel {
+    private static _instance;
+    gridOptions: KnockoutComputed<any>;
+    Attachments: Attachments;
+    constructor();
+    static getInstance(): WorkflowStatusViewModel;
+    eventSelectorVisible: () => KnockoutComputed<boolean>;
+    filterCounts: {
+        [hierarchyIdentifier: string]: KnockoutObservable<number>;
+    };
+    filterCount: (hierarchyIdentifier: string) => KnockoutObservable<number>;
+    getAttribute(o1: Aci.Flex.Server.ObjectModel.WorkflowStatus, o2: Aci.Flex.DataModel.InputSourceWorkflowAttribute): string;
+    modelIdentifier: string;
+    isRealTimeUpdateEnabled: KnockoutObservable<boolean>;
+    onlyRestricted: KnockoutObservable<boolean>;
+    modelEvents: KnockoutObservableArray<Aci.Flex.Core.Primitives.FlexObjectIdentifier>;
+    eventInputSources: KnockoutObservableArray<Aci.Flex.Core.Primitives.FlexObjectIdentifier>;
+    workflowStatus: KnockoutObservableArray<Aci.Flex.Server.ObjectModel.WorkflowStatus>;
+    selectedMembers: KnockoutObservableArray<Aci.Flex.Server.ObjectModel.DimensionMemberInfo>;
+    workflowAttributes: KnockoutObservableArray<Aci.Flex.DataModel.InputSourceWorkflowAttribute>;
+    workflowFilters: KnockoutObservableArray<Aci.Flex.Server.ObjectModel.DimensionInfo>;
+    workflowPopupVisible: KnockoutObservable<boolean>;
+    selectedHierarchy: KnockoutObservable<string>;
+    workflowHistoryVisible: KnockoutObservable<string>;
+    workflowHistory: KnockoutObservableArray<Aci.Flex.Server.ObjectModel.WorkflowHistory>;
+    filteredWorkflowIdentifier: KnockoutObservable<string>;
+    selectedEventIdentifier: KnockoutObservable<string>;
+    selectedInputSourceIdentifier: KnockoutObservable<string>;
+    inProgressWorkflowInstanceId: KnockoutObservable<string>;
+    messageHubProxy: MyHubConnection;
+    treeViewModel: HierarchyMemberSelectorViewModel;
+    getMemberLabel(ttt: any): string;
+    workflowHistoryClosed(): void;
+    clearWorkflowIdentifierFilter: () => void;
+    onMembersSelected(context: WorkflowStatusViewModel, hierarchyIdentifier: string, members: Array<string>): void;
+    getSelectedMembers: () => Aci.Flex.Server.ObjectModel.DimensionMemberInfo[];
+    load(modelIdentifier: string, workflowIdentifier?: string): Q.Promise<boolean>;
+    loadInputSourceWorkflowFilters(inputSourceIdentifier: string): Q.Promise<boolean>;
+    loadInputAttributes(inputSourceIdentifier: string): Q.Promise<boolean>;
+    loadEvents(): Q.Promise<boolean>;
+    loadWorkbooks(eventIdentifier: string): Q.Promise<boolean>;
+    getStateImage(workflowStatus: Aci.Flex.Server.ObjectModel.WorkflowStatus): string;
+    getWorkflowItemStateImages(workflowStatus: Aci.Flex.Server.ObjectModel.WorkflowStatus): Array<System.Tuple<string, string>>;
+    getBookmarkImage(workflowHistory: Aci.Flex.Server.ObjectModel.WorkflowHistory): string;
+    loadWorkflowStatusItem(workflowInstanceId: string): Q.Promise<boolean>;
+    createWorkflowStatusRequest(): Aci.Flex.Portal.Model.WorkflowStatusRequest;
+    loadWorkflowStatus(): Q.Promise<boolean>;
+    registerSignalR(): void;
+    loadWorkflowHistory(workflowInstanceId: any): Q.Promise<boolean>;
+    showAttachments(workflowInstanceId: string): void;
+    actionWorkflowBookmark(metadata: Aci.Flex.Server.Workflow.FlexActivityMetadata): void;
+    sortAttribute: (header: Aci.Flex.DataModel.InputSourceWorkflowAttribute, event: any) => void;
+    sortState: (event: any) => void;
+    sortDescription: (event: any) => void;
+    bindHandlers(): void;
+    bindTree(workflowFilter: Aci.Flex.Server.ObjectModel.DimensionInfo, elementId: string): void;
+    static ProcessBookmark(workflowInstanceId: string, bookmarkName: string, comment: string): void;
+    private processBookmark(workflowInstanceId, bookmarkName, comment);
+}
+declare function BindWorkflowStatusViewModel(modelIdentifier: string, workflowIdentifier?: string): void;

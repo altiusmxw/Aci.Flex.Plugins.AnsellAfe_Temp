@@ -1,0 +1,283 @@
+<#@ assembly name="EnvDTE" #>
+<#@ assembly name="System.Core.dll" #>
+<#@ assembly name="System.Xml.Linq.dll" #>
+<#@ assembly name="System.Xml.dll" #>
+<#@ Import Namespace="EnvDTE" #>
+<#@ Import Namespace="System.Collections" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="System.Diagnostics" #>
+<#@ Import namespace="System.Linq" #>
+<#@ Import namespace="System.Xml.Linq" #>
+<#+
+
+
+	public IEnumerable<CodeClass> GetClassesWithAttribute(IEnumerable<CodeElement> elements, string attributeName)
+	{
+		var classes = elements.Where(el => el.Kind == vsCMElement.vsCMElementClass)
+			.Cast<CodeClass>()		
+			.Where(cl => Attributes(cl).Any(at => at.FullName.EndsWith(attributeName)));
+		return classes;
+	}
+
+	public IEnumerable<CodeClass> GetClassesImplementingInterface(IEnumerable<CodeElement> elements, string interfaceName)
+	{
+		var classes = elements.Where(el => el.Kind == vsCMElement.vsCMElementClass)
+			.Cast<CodeClass>()		
+			.Where(cl => ImplementedInterfaces(cl).Any(ii=>ii.Name.EndsWith(interfaceName))
+			);
+		  
+
+		return classes;
+	}
+
+	public IEnumerable<CodeInterface> GetInterfacesWithAttribute(IEnumerable<CodeElement> elements, string attributeName)
+	{
+ 
+		var classes = elements.Where(el => el.Kind == vsCMElement.vsCMElementInterface)
+			.Cast<CodeInterface>()
+			.Where(cl => Attributes(cl).Any(at => at.Name == attributeName));
+
+	  var c = classes.Count();
+
+
+		return classes;
+	}
+
+
+
+	public ProjectItems GetProjectItems(Microsoft.VisualStudio.TextTemplating.TextTransformation callingTransformation)
+	{
+		var project = GetProject(callingTransformation);
+	
+		return project.ProjectItems;
+
+	}
+
+	public Project GetProject(Microsoft.VisualStudio.TextTemplating.TextTransformation callingTransformation)
+	{
+
+		var callingType = callingTransformation.GetType();
+
+		System.Reflection.PropertyInfo hostProperty = callingType.GetProperty("Host");
+	
+		if (hostProperty == null)
+		{
+			throw new Exception("Unable to retrieve templating engine host. " 
+				+ "Ensure that the template includes hostspecific=\"True\" "
+				+ "parameter in the directive.");
+		}
+	
+		Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost host 
+			= (Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost)hostProperty.GetValue(callingTransformation, null);
+
+		IServiceProvider hostServiceProvider = (IServiceProvider)host;
+		EnvDTE.DTE dte = (EnvDTE.DTE)hostServiceProvider.GetService(typeof(EnvDTE.DTE));
+		EnvDTE.ProjectItem containingProjectItem = dte.Solution.FindProjectItem(host.TemplateFile);
+		Project project = containingProjectItem.ContainingProject;
+
+		return project;
+	
+	}
+
+
+
+	public IEnumerable<CodeAttribute> Attributes(CodeVariable codeVariable)
+	{
+		foreach (CodeElement element in codeVariable.Attributes)
+		{
+			yield return (CodeAttribute)element;
+		}
+	}
+
+	public IEnumerable<CodeInterface> ImplementedInterfaces(CodeClass codeClass)
+	{
+		foreach (CodeInterface ci in codeClass.ImplementedInterfaces)
+		{
+			yield return (CodeInterface)ci;
+		}
+	}
+
+	public IEnumerable<CodeFunction> Functions(CodeInterface codeInterface)
+	{
+		foreach (CodeElement element in codeInterface.Members)
+		{
+			if (element.Kind == vsCMElement.vsCMElementFunction)
+				yield return (CodeFunction)element;
+		}
+	}
+
+	public IEnumerable<CodeFunction> Functions(CodeClass codeClass)
+	{
+		foreach (CodeElement element in codeClass.Members)
+		{
+			if (element.Kind == vsCMElement.vsCMElementFunction)
+				yield return (CodeFunction)element;
+		}
+	}
+
+	public IEnumerable<CodeVariable> Variables(CodeClass codeClass)
+	{
+		foreach (CodeElement member in codeClass.Members)
+		{                
+			if (member.Kind == vsCMElement.vsCMElementVariable)
+				yield return (CodeVariable)member;
+		}
+	}
+
+ 
+	public IEnumerable<CodeProperty> Properties(CodeClass codeClass)
+	{
+		foreach (CodeElement member in codeClass.Members)
+		{                
+			if (member.Kind == vsCMElement.vsCMElementProperty)
+				yield return (CodeProperty)member;
+		}
+	}
+
+	public IEnumerable<CodeParameter> Parameters(CodeFunction codeFunction)
+	{
+		foreach (CodeParameter element in codeFunction.Parameters)
+		{
+			yield return element;
+		}
+	}
+
+	public IEnumerable<CodeAttribute> Attributes(CodeProperty codeProperty)
+	{
+		foreach (CodeElement element in codeProperty.Attributes)
+		{
+			yield return (CodeAttribute)element;
+		}
+	}
+
+
+	public IEnumerable<CodeElement> Members(CodeClass codeClass)
+	{
+		foreach (CodeElement member in codeClass.Members)
+		{
+			yield return (CodeElement)member;
+		}
+	}
+
+	public IEnumerable<CodeElement> Members(CodeInterface codeClass)
+	{
+		foreach (CodeElement member in codeClass.Members)
+		{
+			yield return (CodeElement)member;
+		}
+	}
+
+	public IEnumerable<CodeAttribute> Attributes(CodeClass codeClass)
+	{
+		foreach(CodeElement element in codeClass.Attributes)
+		{
+			yield return (CodeAttribute)element;
+		}
+	}
+
+	public IEnumerable<CodeAttribute> Attributes(CodeInterface codeInterface)
+	{
+		foreach(var element in codeInterface.Attributes)
+		{
+			yield return (CodeAttribute)element;
+		}
+	}
+
+	public IEnumerable<CodeAttribute> Attributes(CodeFunction codeFunction)
+	{
+		foreach(var element in codeFunction.Attributes)
+		{
+			yield return (CodeAttribute)element;
+		}
+	}
+
+
+
+
+
+	public IEnumerable<CodeElement> CodeElementsInProjectItems(ProjectItems projectItems)
+	{
+		foreach (ProjectItem projectItem in projectItems)
+		{
+			foreach(CodeElement el in CodeElementsInProjectItem(projectItem))
+			{
+				yield return el;
+			}
+		}
+	}
+
+	public IEnumerable<CodeElement> CodeElementsInProjectItem(ProjectItem projectItem)
+	{
+		FileCodeModel fileCodeModel = projectItem.FileCodeModel;
+	
+		if (fileCodeModel != null)
+		{
+			foreach (CodeElement codeElement in fileCodeModel.CodeElements)
+			{
+				//WalkElements(codeElement, null);
+				foreach(CodeElement el in CodeElementDescendantsAndSelf(codeElement))
+				{
+					yield return el;
+				}
+			}
+		}
+	
+		if (projectItem.ProjectItems != null)
+		{
+			foreach (ProjectItem childItem in projectItem.ProjectItems)
+			{
+				foreach (CodeElement el in CodeElementsInProjectItem(childItem))
+				{
+					yield return el;
+				}
+			}
+		}		
+	}
+
+	public IEnumerable<CodeElement> CodeElementsDescendants(CodeElements codeElements)
+	{
+		foreach(CodeElement element in codeElements)
+		{
+			foreach (CodeElement descendant in CodeElementDescendantsAndSelf(element))
+			{
+				yield return descendant;			    
+			}
+		}
+	}
+
+	public IEnumerable<CodeElement> CodeElementDescendantsAndSelf(CodeElement codeElement)
+	{
+		yield return codeElement;
+	
+		CodeElements codeElements;
+			
+		switch(codeElement.Kind)
+		{		
+	
+			/* namespaces */
+			case vsCMElement.vsCMElementNamespace:
+			{
+				var codeNamespace = (EnvDTE.CodeNamespace)codeElement;										
+				codeElements = codeNamespace.Members;
+				foreach(CodeElement descendant in CodeElementsDescendants(codeElements))
+				{
+					yield return descendant;			    
+				}
+				break;
+			}
+		
+			/* Process classes */
+			case vsCMElement.vsCMElementClass:
+			{	        
+				CodeClass codeClass = (CodeClass)codeElement;			
+				codeElements = codeClass.Members;
+				foreach(CodeElement descendant in CodeElementsDescendants(codeElements))
+				{			    
+					yield return descendant;			    
+				}	        
+				break;	
+			}
+		
+		}
+	
+	}#>

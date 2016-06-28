@@ -1,0 +1,71 @@
+declare class UserListViewModel {
+    modelIdentifier: string;
+    userList: KnockoutObservableArray<Aci.Flex.DataModel.User>;
+    editingUser: KnockoutObservable<EditUserViewModel>;
+    searchingUser: KnockoutObservable<SearchUserViewModel>;
+    dimensions: KnockoutObservableArray<Aci.Flex.DataModel.Dimension>;
+    hierarchies: KnockoutObservableArray<Aci.Flex.DataModel.Hierarchy>;
+    selectedHierarchyId: KnockoutObservable<string>;
+    treeViewModel: HierarchyMemberSelectorViewModel;
+    selectedDimensionId: KnockoutObservable<string>;
+    displayTree: KnockoutObservable<boolean>;
+    availableHierarchies: KnockoutComputed<Array<Aci.Flex.DataModel.Hierarchy>>;
+    hierarchyRoles: KnockoutObservableArray<Aci.Flex.DataModel.ModelRole>;
+    staticRoles: KnockoutObservableArray<Aci.Flex.DataModel.ModelRole>;
+    licensePacks: KnockoutObservableArray<Aci.Flex.DataModel.ModelLicense>;
+    selectedRoles: KnockoutObservableArray<{}>;
+    Active: KnockoutObservable<boolean>;
+    www: KnockoutObservable<number>;
+    constructor(modelIdentifier: string);
+    createUser: (searchResult: any) => void;
+    initialize: () => Q.Promise<boolean>;
+    showAddUser(): void;
+    private fetchUsers();
+    private fetchLicensePacks();
+    private fetchHierarchies();
+    private fetchDimensions();
+    private fetchHierarchyRoles();
+    private fetchStaticRoles();
+    editUser: (user: Aci.Flex.DataModel.User) => void;
+    cancelUpdate: () => void;
+    deactivateUser: (user: Aci.Flex.DataModel.User) => void;
+    reactivateUser: (user: Aci.Flex.DataModel.User) => void;
+    updateUser: (vm: EditUserViewModel) => void;
+    selectMember: () => void;
+}
+declare class EditUserViewModel {
+    userIdentifier: string;
+    userDetails: KnockoutObservable<Aci.Flex.DataModel.User>;
+    userHierarchyRoles: KnockoutObservableArray<Aci.Flex.Server.ObjectModel.UserHierarchyRoleInfo>;
+    modelRoles: KnockoutObservableArray<Aci.Flex.DataModel.ModelRole>;
+    treeViewModel: HierarchyMemberSelectorViewModel;
+    formattedHierarchyRoles: KnockoutComputed<Array<any>>;
+    isNewUser: KnockoutObservable<boolean>;
+    parentModel: UserListViewModel;
+    selectedStaticRoleId: KnockoutObservable<string>;
+    gridOptions: KnockoutComputed<any>;
+    assignedLicense: KnockoutObservable<string>;
+    isActive: KnockoutObservable<boolean>;
+    getHierarchyName: (hierarchyIdentifier: string) => string;
+    constructor(parentModel: UserListViewModel);
+    getLicenseDescription(item: Aci.Flex.DataModel.ModelLicense): string;
+    setLicenseOptionDisabled: (option: any, item: Aci.Flex.DataModel.ModelLicense) => void;
+    loadNewUser: (searchResult: Aci.Flex.Core.PersonInfo) => void;
+    fetchUser: (userIdentifier: string) => void;
+    private fetchUserDetails(userIdentifier);
+    private fetchUserModelRoles(userIdentifier);
+    private fetchUserHierarchyRoles(userIdentifier);
+    addStaticRole: () => void;
+    removeHierarchyRole: (role: any) => void;
+    removeModelRole: (role: any) => void;
+    addHierarchyRoles: (hierarchyIdentifier: string, element: string) => void;
+}
+declare class SearchUserViewModel {
+    Id: KnockoutObservable<string>;
+    Firstname: KnockoutObservable<string>;
+    Lastname: KnockoutObservable<string>;
+    Email: KnockoutObservable<string>;
+    SearchResults: KnockoutObservableArray<Aci.Flex.Core.PersonInfo>;
+    searchUser: () => void;
+}
+declare function BindUserViewModel(modelIdentifier: string, rootNode: any): void;
