@@ -1,0 +1,567 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="1466ecb0-621e-4026-b423-26306a6ebb65" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Afe</ID>
+  <Name>Afe</Name>
+  <CreatedTimestamp>0001-01-01T06:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T06:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="16" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1519" scrolltop="-5878" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="10821" y="21034" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Purpose" left="359" top="7400" logicalid="8" controlid="1" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000b80b000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="30d9d1be-bc80-4c66-a72c-07a02f411884_Purpose" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Currency" left="6098" top="1349" logicalid="9" controlid="2" masterid="0" hint1="0" hint2="0" width="3069" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000fd0b0000fe080000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="30d9d1be-bc80-4c66-a72c-07a02f411884_Currency" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Afe" left="20" top="0" logicalid="10" controlid="3" masterid="0" hint1="0" hint2="0" width="3678" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a00005e0e000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="30d9d1be-bc80-4c66-a72c-07a02f411884_Afe" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="1460" top="4700" logicalid="11" controlid="4" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Afe-Purpose]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="3" sourceattachpoint="4" destattachpoint="7" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="1859" y="7400" />
+              <point x="1859" y="5000" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="3398" top="2101" logicalid="12" controlid="5" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Afe-Currency]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="3" sourceattachpoint="12" destattachpoint="23" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="6098" y="2500" />
+              <point x="3698" y="2500" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="Site" left="3572" top="-4471" logicalid="13" controlid="6" masterid="0" hint1="0" hint2="0" width="3000" height="2725" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000a0000b80b0000a50a0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="30d9d1be-bc80-4c66-a72c-07a02f411884_Site" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="3209" top="-2245" logicalid="14" controlid="7" masterid="0" hint1="0" hint2="0" width="1163" height="2545" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Afe-Site]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="6" destid="3" sourceattachpoint="1" destattachpoint="12" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="3972" y="-1746" />
+              <point x="3972" y="-873" />
+              <point x="3509" y="-873" />
+              <point x="3509" y="0" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-1519</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-5878</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>-4471</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="119">
+            <Shape Id="Afe Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Afe Id" />
+                <Attribute Id="Currency Id" />
+                <Attribute Id="Original Afe Id" />
+                <Attribute Id="Project Name" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Site Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Site Id" />
+              </Attributes>
+              <Position x="173" y="20" />
+            </Shape>
+            <Shape Id="Region" Expanded="false">
+              <Attributes>
+                <Attribute Id="Region" />
+              </Attributes>
+              <Position x="327" y="20" />
+            </Shape>
+            <Shape Id="Purpose Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Purpose Id" />
+              </Attributes>
+              <Position x="173" y="68" />
+            </Shape>
+            <Shape Id="Function Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Function Id" />
+              </Attributes>
+              <Position x="173" y="116" />
+            </Shape>
+            <Shape Id="Nature Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Nature Id" />
+              </Attributes>
+              <Position x="173" y="164" />
+            </Shape>
+            <Shape Id="Division Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Division Id" />
+              </Attributes>
+              <Position x="173" y="212" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T06:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="ca210f57-bf53-47ca-ad60-7241790f90c4">
+    <DataSourceViewID>Flex_AnsellAfeDemo</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="e7cb606a-c6fe-49f7-9bcc-5b454d6c5a74">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="1c56b892-5658-4f57-8626-af3760ac7c3f">
+      <ID>Afe Id</ID>
+      <Name>Afe</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ed0753ae-3fc5-47d5-ba6e-7dca677a4fd9">
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f9d4f9d2-25a5-4a65-85a9-d869f3c3a10a">
+            <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Afe</TableID>
+            <ColumnID>AfeId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="40e50c9a-e125-4bcd-a6fd-deed9702f8d5">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6f14e29d-6148-42b8-b549-6d16597d381f">
+          <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Afe</TableID>
+          <ColumnID>ProjectName</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="99dc2add-76df-4809-bd56-d0bc93f78f77">
+          <AttributeID>Division Id</AttributeID>
+          <Name>Division</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5b580830-918c-462a-8d3b-25eb10609ddf">
+          <AttributeID>Nature Id</AttributeID>
+          <Name>Nature</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d505f177-2fa4-44fa-90c3-5ca877df5c70">
+          <AttributeID>Function Id</AttributeID>
+          <Name>Function</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0f842f6b-9819-4f93-9d7e-d9a438320d9a">
+          <AttributeID>Currency Id</AttributeID>
+          <Name>Currency</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ffb2662b-3a12-452d-972f-91093891a743">
+          <AttributeID>Purpose Id</AttributeID>
+          <Name>Purpose</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0a1dc8d3-2a60-4a77-b3a5-bfd426f5cd07">
+          <AttributeID>Original Afe Id</AttributeID>
+          <Name>OriginalAfe</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7a8c2054-5461-4d94-8058-2663e1155598">
+          <AttributeID>Project Name</AttributeID>
+          <Name>ProjectName</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7d383b35-86e2-4930-8f1a-08570a520349">
+          <AttributeID>Site Id</AttributeID>
+          <Name>Site</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="859f9bf8-946c-4a46-82ec-476db483ca65">
+      <ID>Division Id</ID>
+      <Name>Division</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fd823f42-5f3c-41a3-856e-880611d9271a">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ff119662-ca6d-4f8d-a729-6446d2cb0b63">
+            <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Afe</TableID>
+            <ColumnID>DivisionId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="5a724ae0-d28e-4712-9505-4477396c2e12">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="03a5f3cb-5865-4efe-9f4d-5d28b452e704">
+          <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Division</TableID>
+          <ColumnID>DivisionName</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="105a59b6-8fc7-48e5-a25e-d8708c70cf9f">
+      <ID>Nature Id</ID>
+      <Name>Nature</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7714b0a0-d95d-4ffc-9c03-f723e3fe864a">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7d983557-02bc-4f0c-8af2-2ad055a0a71e">
+            <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Afe</TableID>
+            <ColumnID>NatureId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2d095bc1-87d7-4d0c-af29-966e1953c991">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0e4c867e-8df2-42cd-bcc5-039d2060686d">
+          <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Nature</TableID>
+          <ColumnID>NatureName</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="09224175-b12e-4d66-a2aa-c397581d46e2">
+      <ID>Function Id</ID>
+      <Name>Function</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f7a74b9b-c940-426a-9ee7-0a05d1eaf487">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1a89256e-9982-422e-9ae4-4f8c40c4cbea">
+            <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Afe</TableID>
+            <ColumnID>FunctionId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0fc10f18-7c1d-4620-b040-032d874ebebb">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a9af567b-c230-4289-9de6-ab924b799387">
+          <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Function</TableID>
+          <ColumnID>FunctionName</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ba57f5bc-43f6-45da-b05d-c67cf7e7b1ee">
+      <ID>Site Id</ID>
+      <Name>Site</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="05083c75-a50f-4439-b544-7a52c2a11d25">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ea55dfde-a12f-43cb-bf36-3b9f2e2f8ab8">
+            <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Afe</TableID>
+            <ColumnID>SiteId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="db282d09-f1cb-4a99-9b84-ed06f0d1f97a">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="9335fb5b-766e-4c0a-b1a6-afa9c69839af">
+          <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Site</TableID>
+          <ColumnID>SiteName</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="d4935a03-734a-4953-9489-1eeca7daedbe">
+          <AttributeID>Region</AttributeID>
+          <Name>Region</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d9c669a0-86a7-4f57-9734-709ca54852df">
+      <ID>Currency Id</ID>
+      <Name>Currency</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4183236e-517c-411f-be90-5428ade05f42">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cc6c4c2f-e519-408d-abe2-5144f5833be2">
+            <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Currency</TableID>
+            <ColumnID>CurrencyId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="79abe977-ff02-447f-90b8-55faac22a3eb">
+      <ID>Purpose Id</ID>
+      <Name>Purpose</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="569805cb-f021-42fa-9dfb-cb0899e7dea4">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f0134baa-8c0c-431d-a59a-2ae9a720a1ed">
+            <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Purpose</TableID>
+            <ColumnID>PurposeId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="03eb0f99-f213-4ac4-a589-330c1bcd3627">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0b7cbea0-30a7-45a5-9634-f807882825b9">
+          <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Purpose</TableID>
+          <ColumnID>PurposeName</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="146b394c-15f9-4667-a3bb-f2715a455430">
+      <ID>Original Afe Id</ID>
+      <Name>OriginalAfe</Name>
+      <Usage>Parent</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3af170b2-f2b6-4c27-966b-f6d43c820e5d">
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e70b1c1f-880e-4a66-8793-f6b6ed9e4fb6">
+            <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Afe</TableID>
+            <ColumnID>OriginalAfeId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e2d3451c-1ff9-44ba-a579-2cb954f459e5">
+      <ID>Project Name</ID>
+      <Name>ProjectName</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="37971e47-569b-4d70-92a2-6ba146328cb0">
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="34ce0a4a-81b7-4b43-8a9f-64520dd7ce4b">
+            <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Afe</TableID>
+            <ColumnID>AfeId</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a116826e-af39-4395-b084-859bc310ac80">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="22805487-5d4d-4646-91ba-c8f3106f7505">
+          <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Afe</TableID>
+          <ColumnID>ProjectName</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1f9d1506-ae76-4e64-8c38-52c5e6106aa1">
+      <ID>Region</ID>
+      <Name>Region</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8aa8166e-668a-4038-9d77-10e9b9f706bf">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a4db9715-3216-4313-b68a-00eafd21dbb7">
+            <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_Site</TableID>
+            <ColumnID>Region</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="a92a6062-cc75-4de2-a08c-9a3073deb999">
+      <ID>Hierarchy</ID>
+      <Name>ByDivision</Name>
+      <Levels>
+        <Level dwd:design-time-name="f17bf63f-96e9-40a9-97df-0041de37664e">
+          <ID>Division</ID>
+          <Name>Division</Name>
+          <SourceAttributeID>Division Id</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="ccbf6d96-76bd-4c7b-89f0-5845739064d6">
+          <ID>Afe</ID>
+          <Name>Afe</Name>
+          <SourceAttributeID>Afe Id</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="0f6a62f6-f96c-4310-b243-37f57884250c">
+      <ID>Hierarchy 1</ID>
+      <Name>ByFunction</Name>
+      <Levels>
+        <Level dwd:design-time-name="0c7b0b1f-d93d-4b08-bd83-5714090c826a">
+          <ID>Function</ID>
+          <Name>Function</Name>
+          <SourceAttributeID>Function Id</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="f839baaf-c8a5-442b-9426-93b6000d8b9d">
+          <ID>Afe</ID>
+          <Name>Afe</Name>
+          <SourceAttributeID>Afe Id</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="a0ebe48e-6cea-4934-978d-a64d28597b47">
+      <ID>Hierarchy 2</ID>
+      <Name>ByNature</Name>
+      <Levels>
+        <Level dwd:design-time-name="f2e6ada8-3d44-4ce3-9701-f252277f2520">
+          <ID>Nature</ID>
+          <Name>Nature</Name>
+          <SourceAttributeID>Nature Id</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="2ff1f56b-473d-4f72-b2d1-896dd2d15ea5">
+          <ID>Afe</ID>
+          <Name>Afe</Name>
+          <SourceAttributeID>Afe Id</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="7263fc1f-d8bb-419f-b449-19b4567421b0">
+      <ID>Hierarchy 1 1</ID>
+      <Name>ByPurpose</Name>
+      <Levels>
+        <Level dwd:design-time-name="5905eb16-2581-4f3c-ab6a-c7088b72fd73">
+          <ID>Purpose</ID>
+          <Name>Purpose</Name>
+          <SourceAttributeID>Purpose Id</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="bb1f6832-abd7-45ef-9344-6a52a3b3575b">
+          <ID>Afe</ID>
+          <Name>Afe</Name>
+          <SourceAttributeID>Afe Id</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="faa48d3c-1e14-487b-8653-4a9f30fdb273">
+      <ID>Hierarchy 2 1</ID>
+      <Name>ByRegion</Name>
+      <Levels>
+        <Level dwd:design-time-name="f6ad7506-3f17-4962-a5f0-3df5dbcc48f6">
+          <ID>Region</ID>
+          <Name>Region</Name>
+          <SourceAttributeID>Region</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="34a5ec4f-ff2e-4912-b291-a9e58d1a5b60">
+          <ID>Site</ID>
+          <Name>Site</Name>
+          <SourceAttributeID>Site Id</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="72fc0de9-c813-4f06-ae32-ef6bbf0463ea">
+          <ID>Afe</ID>
+          <Name>Afe</Name>
+          <SourceAttributeID>Afe Id</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

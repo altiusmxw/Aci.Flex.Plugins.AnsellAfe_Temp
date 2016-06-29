@@ -55,7 +55,27 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server.Interfaces
 
 			[OperationContract]
 			[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
-			Task<Aci.Flex.Plugins.AnsellAfe.Server.Objects.SaveAfeReturnDetails> SaveAfeAsync(Aci.Flex.Plugins.AnsellAfe.Server.Objects.AfeSubmitData afeData,bool isDraft);
+			Task<decimal> GetPreviousAfeCostsAsync(int divisionId,int functionId,int siteId,int year);
+
+			[OperationContract]
+			[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
+			Task<Aci.Flex.Plugins.AnsellAfe.Server.Objects.SaveAfeReturnDetails> SaveAfeAsync(System.Guid userIdentifier,Aci.Flex.Plugins.AnsellAfe.Server.Objects.AfeSubmitData afeData,bool isDraft);
+
+			[OperationContract]
+			[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
+			Task<System.Collections.Generic.IEnumerable<Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Afe>> FindAfesAsync(string searchTerm);
+
+			[OperationContract]
+			[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
+			Task<Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Afe> GetAfeAsync(long afeId);
+
+			[OperationContract]
+			[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
+			Task<System.Collections.Generic.IEnumerable<Aci.Flex.Core.PersonInfo>> FindUsersAsync(string ntId,string firstname,string lastname,string email);
+
+			[OperationContract]
+			[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
+			Task<System.Collections.Generic.IEnumerable<Aci.Flex.Core.PersonInfo>> GetAuthorizationChainAsync(int natureId,int divisionId,int functionId,decimal amount);
 
 			 
 	}

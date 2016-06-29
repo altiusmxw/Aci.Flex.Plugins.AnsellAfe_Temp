@@ -1,4 +1,5 @@
-﻿using Aci.Flex.Core.Logging;
+﻿using Aci.Flex.Core;
+using Aci.Flex.Core.Logging;
 using Aci.Flex.Interfaces;
 using Aci.Flex.Plugins.AnsellAfe.Server.DataModel;
 using Aci.Flex.Plugins.AnsellAfe.Server.Interfaces;
@@ -80,9 +81,47 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server
             return GetAfeModule().GetBudget(divisionId, functionId, siteId, year);
         }
 
-        public Objects.SaveAfeReturnDetails SaveAfe(Objects.AfeSubmitData afeData, bool isDraft)
+        public decimal GetPreviousAfeCosts(int divisionId, int functionId, int siteId, int year)
         {
-            return GetAfeModule().SaveAfe(afeData, isDraft);
+            return GetAfeModule().GetPreviousAfeCosts(divisionId, functionId, siteId, year);
+        }
+
+        public Objects.SaveAfeReturnDetails SaveAfe(Guid userIdentifier, Objects.AfeSubmitData afeData, bool isDraft)
+        {
+            return GetAfeModule().SaveAfe(userIdentifier, afeData, isDraft);
+        }
+
+        public IEnumerable<Afe> FindAfes(string searchTerm)
+        {
+            return GetAfeModule().FindAfes(searchTerm);
+        }
+
+        public Afe GetAfe(long afeId)
+        {
+            return GetAfeModule().GetAfe(afeId);
+        }
+
+        public IEnumerable<PersonInfo> FindUsers(string ntId, string firstname, string lastname, string email)
+        {
+            var users = ActiveDirectoryHelper.SearchUsers(ntId, lastname, firstname, email);
+
+            foreach (var user in users)
+            {
+                var pi = Aci.Flex.Server.Core.PlatformServices.Security.GetUser(user.Id);
+                if (pi != null)
+                {
+                    user.FlexIdentifier = pi.FlexIdentifier;
+                    user.Name = pi.Name;
+                    user.Title = pi.Title;
+                }
+            }
+
+            return users;
+        }
+
+        public IEnumerable<PersonInfo> GetAuthorizationChain(int natureId, int divisionId, int functionId, decimal amount)
+        {
+            return GetAfeModule().GetAuthorizationChain(natureId, divisionId, functionId, amount);
         }
 
         #region IFlexService

@@ -10,6 +10,7 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server.DataModel
     {
         public int AccountId { get; set; }
         public string AccountName { get; set; }
+        public string FriendlyAccountName { get; set; }
         public int FactType { get; set; }
     }
 }

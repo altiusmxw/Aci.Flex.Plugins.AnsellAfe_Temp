@@ -7,7 +7,7 @@ var Flex;
             function GetDivisions() {
                 var baseUrl = $.url("portal");
                 var typeHint = "Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Division";
-                var targetUrl = baseUrl + "api/commonafeapi/getdivisions";
+                var targetUrl = baseUrl + "api/commonafeapi/GetDivisions";
                 return Aci.Flex.Portal.ServiceHelper.GetArrayData(targetUrl, typeHint);
             }
             CommonAfeApi.GetDivisions = GetDivisions;
@@ -21,7 +21,7 @@ var Flex;
             function GetFunctions() {
                 var baseUrl = $.url("portal");
                 var typeHint = "Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Function";
-                var targetUrl = baseUrl + "api/commonafeapi/getfunctions";
+                var targetUrl = baseUrl + "api/commonafeapi/GetFunctions";
                 return Aci.Flex.Portal.ServiceHelper.GetArrayData(targetUrl, typeHint);
             }
             CommonAfeApi.GetFunctions = GetFunctions;
@@ -35,7 +35,7 @@ var Flex;
             function GetSites() {
                 var baseUrl = $.url("portal");
                 var typeHint = "Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Site";
-                var targetUrl = baseUrl + "api/commonafeapi/getsites";
+                var targetUrl = baseUrl + "api/commonafeapi/GetSites";
                 return Aci.Flex.Portal.ServiceHelper.GetArrayData(targetUrl, typeHint);
             }
             CommonAfeApi.GetSites = GetSites;
@@ -49,7 +49,7 @@ var Flex;
             function GetNatures() {
                 var baseUrl = $.url("portal");
                 var typeHint = "Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Nature";
-                var targetUrl = baseUrl + "api/commonafeapi/getnatures";
+                var targetUrl = baseUrl + "api/commonafeapi/GetNatures";
                 return Aci.Flex.Portal.ServiceHelper.GetArrayData(targetUrl, typeHint);
             }
             CommonAfeApi.GetNatures = GetNatures;
@@ -63,7 +63,7 @@ var Flex;
             function GetPurposes() {
                 var baseUrl = $.url("portal");
                 var typeHint = "Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Purpose";
-                var targetUrl = baseUrl + "api/commonafeapi/getpurposes";
+                var targetUrl = baseUrl + "api/commonafeapi/GetPurposes";
                 return Aci.Flex.Portal.ServiceHelper.GetArrayData(targetUrl, typeHint);
             }
             CommonAfeApi.GetPurposes = GetPurposes;
@@ -77,7 +77,7 @@ var Flex;
             function GetCurrencies() {
                 var baseUrl = $.url("portal");
                 var typeHint = "Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Currency";
-                var targetUrl = baseUrl + "api/commonafeapi/getcurrencies";
+                var targetUrl = baseUrl + "api/commonafeapi/GetCurrencies";
                 return Aci.Flex.Portal.ServiceHelper.GetArrayData(targetUrl, typeHint);
             }
             CommonAfeApi.GetCurrencies = GetCurrencies;
@@ -90,8 +90,8 @@ var Flex;
             CommonAfeApi.ResolveGetCurrencies = ResolveGetCurrencies;
             function GetUsdExchangeRates() {
                 var baseUrl = $.url("portal");
-                var typeHint = "Tuple";
-                var targetUrl = baseUrl + "api/commonafeapi/getusdexchangerates";
+                var typeHint = "System.Tuple<number, number>";
+                var targetUrl = baseUrl + "api/commonafeapi/GetUsdExchangeRates";
                 return Aci.Flex.Portal.ServiceHelper.GetArrayData(targetUrl, typeHint);
             }
             CommonAfeApi.GetUsdExchangeRates = GetUsdExchangeRates;
@@ -105,7 +105,7 @@ var Flex;
             function GetBudget(divisionId, functionId, siteId, year) {
                 var baseUrl = $.url("portal");
                 var typeHint = "number";
-                var targetUrl = baseUrl + "api/commonafeapi/getbudget";
+                var targetUrl = baseUrl + "api/commonafeapi/GetBudget" + "?divisionId=" + divisionId + "&functionId=" + functionId + "&siteId=" + siteId + "&year=" + year;
                 return Aci.Flex.Portal.ServiceHelper.GetData(targetUrl, typeHint, true);
             }
             CommonAfeApi.GetBudget = GetBudget;
@@ -116,6 +116,76 @@ var Flex;
                 }, function (f) { return false; });
             }
             CommonAfeApi.ResolveGetBudget = ResolveGetBudget;
+            function GetPreviousAfeCosts(divisionId, functionId, siteId, year) {
+                var baseUrl = $.url("portal");
+                var typeHint = "number";
+                var targetUrl = baseUrl + "api/commonafeapi/GetPreviousAfeCosts" + "?divisionId=" + divisionId + "&functionId=" + functionId + "&siteId=" + siteId + "&year=" + year;
+                return Aci.Flex.Portal.ServiceHelper.GetData(targetUrl, typeHint, true);
+            }
+            CommonAfeApi.GetPreviousAfeCosts = GetPreviousAfeCosts;
+            function ResolveGetPreviousAfeCosts(divisionId, functionId, siteId, year, resolveTo) {
+                return GetPreviousAfeCosts(divisionId, functionId, siteId, year).then(function (e) {
+                    resolveTo(e);
+                    return true;
+                }, function (f) { return false; });
+            }
+            CommonAfeApi.ResolveGetPreviousAfeCosts = ResolveGetPreviousAfeCosts;
+            function FindAfes(searchTerm) {
+                var baseUrl = $.url("portal");
+                var typeHint = "Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Afe";
+                var targetUrl = baseUrl + "api/commonafeapi/FindAfes" + "?searchTerm=" + searchTerm;
+                return Aci.Flex.Portal.ServiceHelper.GetArrayData(targetUrl, typeHint);
+            }
+            CommonAfeApi.FindAfes = FindAfes;
+            function ResolveFindAfes(searchTerm, resolveTo) {
+                return FindAfes(searchTerm).then(function (e) {
+                    resolveTo(e);
+                    return true;
+                }, function (f) { return false; });
+            }
+            CommonAfeApi.ResolveFindAfes = ResolveFindAfes;
+            function GetAfe(afeId) {
+                var baseUrl = $.url("portal");
+                var typeHint = "Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Afe";
+                var targetUrl = baseUrl + "api/commonafeapi/GetAfe" + "?afeId=" + afeId;
+                return Aci.Flex.Portal.ServiceHelper.GetData(targetUrl, typeHint, true);
+            }
+            CommonAfeApi.GetAfe = GetAfe;
+            function ResolveGetAfe(afeId, resolveTo) {
+                return GetAfe(afeId).then(function (e) {
+                    resolveTo(e);
+                    return true;
+                }, function (f) { return false; });
+            }
+            CommonAfeApi.ResolveGetAfe = ResolveGetAfe;
+            function FindUsers(ntId, firstname, lastname, email) {
+                var baseUrl = $.url("portal");
+                var typeHint = "Aci.Flex.Core.PersonInfo";
+                var targetUrl = baseUrl + "api/commonafeapi/FindUsers" + "?ntId=" + ntId + "&firstname=" + firstname + "&lastname=" + lastname + "&email=" + email;
+                return Aci.Flex.Portal.ServiceHelper.GetArrayData(targetUrl, typeHint);
+            }
+            CommonAfeApi.FindUsers = FindUsers;
+            function ResolveFindUsers(ntId, firstname, lastname, email, resolveTo) {
+                return FindUsers(ntId, firstname, lastname, email).then(function (e) {
+                    resolveTo(e);
+                    return true;
+                }, function (f) { return false; });
+            }
+            CommonAfeApi.ResolveFindUsers = ResolveFindUsers;
+            function GetApprovers(natureId, divisionId, functionId, amount) {
+                var baseUrl = $.url("portal");
+                var typeHint = "Aci.Flex.Core.PersonInfo";
+                var targetUrl = baseUrl + "api/commonafeapi/GetApprovers" + "?natureId=" + natureId + "&divisionId=" + divisionId + "&functionId=" + functionId + "&amount=" + amount;
+                return Aci.Flex.Portal.ServiceHelper.GetArrayData(targetUrl, typeHint);
+            }
+            CommonAfeApi.GetApprovers = GetApprovers;
+            function ResolveGetApprovers(natureId, divisionId, functionId, amount, resolveTo) {
+                return GetApprovers(natureId, divisionId, functionId, amount).then(function (e) {
+                    resolveTo(e);
+                    return true;
+                }, function (f) { return false; });
+            }
+            CommonAfeApi.ResolveGetApprovers = ResolveGetApprovers;
         })(CommonAfeApi = ApiClient.CommonAfeApi || (ApiClient.CommonAfeApi = {}));
     })(ApiClient = Flex.ApiClient || (Flex.ApiClient = {}));
 })(Flex || (Flex = {}));

@@ -17,6 +17,7 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Mapping
 
             Property(x => x.AccountId).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.AccountName).IsRequired();
+            Property(x => x.FriendlyAccountName).IsRequired();
             Property(x => x.FactType).IsRequired();
         }
     }

@@ -24,6 +24,8 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server
         public DbSet<Nature> Natures { get; set; }
         public DbSet<Purpose> Purposes { get; set; }
         public DbSet<Site> Sites { get; set; }
+        public DbSet<Authorization> Authorizations { get; set; }
+        public DbSet<AuthorizationCategory> AuthorizationCategories { get; set; }
 
         public AnsellAfeContext()
             : base()
@@ -55,6 +57,8 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server
             modelBuilder.Configurations.Add(new NatureMap());
             modelBuilder.Configurations.Add(new PurposeMap());
             modelBuilder.Configurations.Add(new SiteMap());
+            modelBuilder.Configurations.Add(new AuthorizationMap());
+            modelBuilder.Configurations.Add(new AuthorizationCategoryMap());
         }
     }
 }

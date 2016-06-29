@@ -151,5 +151,90 @@ namespace Aci.Flex.Plugins.AnsellAfe.Web.Controllers.Api
                 return Ok(0);
             }
         }
+
+        [Route("getpreviousafecosts")]
+        [ResponseType(typeof(decimal))]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetPreviousAfeCosts(int divisionId, int functionId, int siteId, int year)
+        {
+            try
+            {
+                var costs = await AnsellAfeServiceHelper.UseAnsellAfeServiceAsync(s => s.GetPreviousAfeCostsAsync(divisionId, functionId, siteId, year));
+                return Ok(costs);
+            }
+            catch (Exception ex)
+            {
+                Log.Exception(ex);
+                return Ok(0);
+            }
+        }
+
+        [Route("findafes")]
+        [ResponseType(typeof(IEnumerable<Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Afe>))]
+        [HttpGet]
+        public async Task<IHttpActionResult> FindAfes(string searchTerm)
+        {
+            try
+            {
+                var afes = await AnsellAfeServiceHelper.UseAnsellAfeServiceAsync(s => s.FindAfesAsync(searchTerm));
+                return Ok(afes);
+            }
+            catch (Exception ex)
+            {
+                Log.Exception(ex);
+                return Ok(new List<Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Afe>());
+            }
+        }
+
+        [Route("getafe")]
+        [ResponseType(typeof(Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Afe))]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetAfe(long afeId)
+        {
+            try
+            {
+                var afe = await AnsellAfeServiceHelper.UseAnsellAfeServiceAsync(s => s.GetAfeAsync(afeId));
+                return Ok(afe);
+            }
+            catch (Exception ex)
+            {
+                Log.Exception(ex);
+                return Ok(new Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Afe());
+            }
+        }
+
+        [Route("findusers")]
+        [ResponseType(typeof(IEnumerable<Aci.Flex.Core.PersonInfo>))]
+        [HttpGet]
+        public async Task<IHttpActionResult> FindUsers(string ntId, string firstname, string lastname, string email)
+        {
+            try
+            {
+                var users = await AnsellAfeServiceHelper.UseAnsellAfeServiceAsync(s => s.FindUsersAsync(ntId, firstname, lastname, email));
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                Log.Exception(ex);
+                return Ok(new List<Aci.Flex.Core.PersonInfo>());
+            }
+        }
+
+        [Route("getapprovers")]
+        [ResponseType(typeof(IEnumerable<Aci.Flex.Core.PersonInfo>))]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetApprovers(int natureId, int divisionId, int functionId, decimal amount)
+        {
+            try
+            {
+                var chain = await AnsellAfeServiceHelper.UseAnsellAfeServiceAsync(s => s.GetAuthorizationChainAsync(natureId, divisionId, functionId, amount));
+                return Ok(chain);
+            }
+            catch (Exception ex)
+            {
+                Log.Exception(ex);
+                return Ok(new List<Aci.Flex.Core.PersonInfo>());
+            }
+        }
     }
 }

@@ -1,0 +1,620 @@
+﻿@model Aci.Flex.Plugins.AnsellAfe.Web.Models.AfeInitializationData
+
+@{
+    Layout = "~/Views/Shared/_AfeLayout.cshtml";
+#if DEBUG
+        ;
+    <script src="@Url.Content("~/Scripts/Enum.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Scripts/TypeScriptClasses.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Scripts/common-helper.js?v=1.0")"></script>
+    <script src="@Url.Content("~/CodeGen/CommonAfeApiController.js?v=1.0")"></script>
+    <script src="@Url.Content("~/CodeGen/SaveAfeApiController.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Scripts/AfeCapture/afecapture-form.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Scripts/money-view.js?v=1.0")"></script>
+    @*<script src="@Url.Content("~/Scripts/Validators/validator.js?v=1.0")"></script>*@
+    <script src="@Url.Content("~/Scripts/select-list-helper.js?v=1.0")"></script>
+#else
+    ;
+    <script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.Enum.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.TypeScriptClasses.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.common-helper.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Resources/CodeGen/Aci.Flex.Plugins.AnsellAfe.Web.CodeGen.CommonAfeApiController.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Resources/CodeGen/Aci.Flex.Plugins.AnsellAfe.Web.CodeGen.SaveAfeApiController.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.AfeCapture.afecapture-form.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.money-view.js?v=1.0")"></script>
+    @*<script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.Validators.validator.js?v=1.0")"></script>*@
+    <script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.select-list-helper.js?v=1.0")"></script>
+    @Scripts.Render("~/bundles/wysiwyg")
+#endif
+}
+<div id="afe-capture-container">
+
+    <!-- 1. ACE Request Information -->
+    <div class="row afe-group-row">
+        <div class="col-md-12 afe-group-outer">
+            <div class="col-md-12 afe-group no-padding">
+                <div class="box">
+                    <div class="box-header"><h5>ACE Request Information</h5></div>
+                    <div class="box-content">
+                        <div class="row col-md-6">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Creation Date</label>
+                                    <div class="data-value col-md-8" data-bind="text: CommonAfeHelper.getReadableDate(CreateDate())"></div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Project Name</label>
+                                    <div class="col-md-8">
+                                        <input type="text" data-bind="value: ProjectName" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Unit Division</label>
+                                    <div class="col-md-8">
+                                        <select class="selectpicker" data-bind="options: DivisionOptions, optionsText: 'text', optionsValue: 'value', optionsCaption: '-- Select One --', selectPicker: DivisionId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Function</label>
+                                    <div class="col-md-8">
+                                        <select class="selectpicker" data-bind="options: FunctionOptions, optionsText: 'text', optionsValue: 'value', optionsCaption: '-- Select One --', selectPicker: FunctionId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Site</label>
+                                    <div class="col-md-8">
+                                        <select class="selectpicker" data-bind="options: SiteOptions, optionsText: 'text', optionsValue: 'value', optionsCaption: '-- Select One --', selectPicker: SiteId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row col-md-6">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">AFE Type</label>
+                                    <div class="data-value col-md-8" data-bind="text: AfeType"></div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Stage-Gate Project ID</label>
+                                    <div class="col-md-8">
+                                        <input type="text" data-bind="value: StageGateProjectId" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Reference No</label>
+                                    <div class="col-md-8">
+                                        <input type="text" data-bind="value: ReferenceNo" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Capital or Revenue</label>
+                                    <div class="col-md-8">
+                                        <select id="ddlCapitalExpense" class="selectpicker" data-bind="options: ExpenditureTypeOptions, optionsText: 'text', optionsValue: 'value', optionsCaption: '-- Select One --', selectPicker: ExpenditureType"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Classification -->
+    <div class="row afe-group-row">
+        <div class="col-md-12 afe-group-outer">
+            <div class="col-md-12 afe-group no-padding">
+                <div class="box">
+                    <div class="box-header"><h5>Classification</h5></div>
+                    <div class="box-content">
+                        <div class="row col-md-6">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Nature</label>
+                                    <div class="col-md-8">
+                                        <select class="selectpicker" data-bind="options: NatureOptions, optionsText: 'text', optionsValue: 'value', optionsCaption: '-- Select One --', selectPicker: NatureId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row col-md-6">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Purpose</label>
+                                    <div class="col-md-8">
+                                        <select class="selectpicker" data-bind="options: PurposeOptions, optionsText: 'text', optionsValue: 'value', optionsCaption: '-- Select One --', selectPicker: PurposeId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Description -->
+    <div class="row afe-group-row">
+        <div class="col-md-12 afe-group-outer">
+            <div class="col-md-12 afe-group no-padding">
+                <div class="box">
+                    <div class="box-header"><h5>Description</h5></div>
+                    <div class="box-content">
+                        <textarea id="txtProjectDescription" rows="8" data-bind="value: Description" style="width: 100%;"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Proposal -->
+    <div class="row afe-group-row">
+        <div class="col-md-12 afe-group-outer">
+            <div class="col-md-12 afe-group no-padding">
+                <div class="box">
+                    <div class="box-header"><h5>Proposal</h5></div>
+                    <div class="box-content">
+                        <textarea id="txtProjectDescription" rows="8" data-bind="value: Proposal" style="width: 100%;"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Project Benefits -->
+    <div class="row afe-group-row">
+        <div class="col-md-12 afe-group-outer">
+            <div class="col-md-12 afe-group no-padding">
+                <div class="box">
+                    <div class="box-header"><h5>Project Benefits</h5></div>
+                    <div class="box-content">
+                        <textarea id="txtProjectDescription" rows="8" data-bind="value: ProjectBenefits" style="width: 100%;"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Risks and Control Measures -->
+    <div class="row afe-group-row">
+        <div class="col-md-12 afe-group-outer">
+            <div class="col-md-12 afe-group no-padding">
+                <div class="box">
+                    <div class="box-header"><h5>Risks and Control Measures</h5></div>
+                    <div class="box-content">
+                        <div class="row col-md-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Project Risks</label>
+                                    <div class="col-md-10">
+                                        <input type="text" id="txtProjectName" style="width: 100%;" data-bind="value: ProjectRisks" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row col-md-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Control Measures</label>
+                                    <div class="col-md-10">
+                                        <input type="text" id="txtProjectName" style="width: 100%;" data-bind="value: ControlMeasures" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Support Documentation -->
+    <div class="row afe-group-row">
+        <div class="col-md-12 afe-group-outer">
+            <div class="col-md-12 afe-group no-padding">
+                <div class="box">
+                    <div class="box-header"><h5>Supporting Documentation</h5></div>
+                    <div class="box-content">
+                        <div class="row col-md-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Financial Model</label>
+                                    <div class="col-md-10">
+                                        <input type="text" id="txtProjectName" style="width: 100%;" @*data-bind="value: ProjectName"*@ />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row col-md-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Business Case</label>
+                                    <div class="col-md-10">
+                                        <input type="text" id="txtProjectName" style="width: 100%;" @*data-bind="value: ProjectName"*@ />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row col-md-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Other Supporting Docs</label>
+                                    <div class="col-md-10">
+                                        <input type="text" id="txtProjectName" style="width: 100%;" @*data-bind="value: ProjectName"*@ />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. Currency & Rate -->
+    <div class="row afe-group-row">
+        <div class="col-md-12 afe-group-outer">
+            <div class="col-md-12 afe-group no-padding">
+                <div class="box">
+                    <div class="box-header"><h5>Currency & Rate</h5></div>
+                    <div class="box-content">
+                        <div class="row col-md-6">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Currency Code</label>
+                                    <div class="col-md-8">
+                                        <select class="selectpicker" data-bind="options: CurrencyOptions, optionsText: 'text', optionsValue: 'value', optionsCaption: '-- Select One --', selectPicker: CurrencyId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row col-md-6">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Exchange Rate</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="txtProjectName" data-bind="value: ExchangeRate" />
+                                        @*<div class="col-md-10 data-value" data-bind="text: ExchangeRate"></div>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. Financial Information -->
+    <div class="row afe-group-row">
+        <div class="col-md-12 afe-group-outer">
+            <div class="col-md-12 afe-group no-padding">
+                <div class="box">
+                    <div class="box-header"><h5>Financial Information</h5></div>
+                    <div class="box-content">
+                        <table name="afe-costs" class="table afe-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th style="width: 250px;">Local Currency Amount</th>
+                                    <th style="width: 250px;">Amount or %</th>
+                                    <th style="width: 50px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1. Estimated Amount Required</td>
+                                    <td class="afe-financial-data-entry">
+                                        <input class="cost" type="text" data-bind="cost: Amount_LC().Text" style="width: 150px;" />
+                                    </td>
+                                    <td class="afe-financial-data-entry">
+                                        <div class="total-cost"></div>
+                                        <input type="text" class="cost hidden" data-bind="totalCost: Amount_USD" />
+                                    </td>
+                                    <td>USD</td>
+                                </tr>
+                                <tr>
+                                    <td>2. Budget Item</td>
+                                    <td class="afe-financial-data-entry">
+                                        <div class="total-cost"></div>
+                                        <input type="text" class="cost hidden" data-bind="totalCost: Budget_LC" />
+                                    </td>
+                                    <td class="afe-financial-data-entry">
+                                        <div class="total-cost"></div>
+                                        <input type="text" class="cost hidden" data-bind="totalCost: Budget_USD" />
+                                    </td>
+                                    <td>USD</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-left: 19px;">2b. Previous AFEs</td>
+                                    <td class="afe-financial-data-entry">
+                                        <div class="total-cost"></div>
+                                        <input type="text" class="cost hidden" data-bind="totalCost: PrevAfe_LC" />
+                                    </td>
+                                    <td class="afe-financial-data-entry">
+                                        <div class="total-cost"></div>
+                                        <input type="text" class="cost hidden" data-bind="totalCost: PrevAfe_USD" />
+                                    </td>
+                                    <td>USD</td>
+                                </tr>
+                                <tr id="tr-remaining-budget" style="font-weight: bold;">
+                                    <td style="padding-left: 19px;">2c. Remaining Budget</td>
+                                    <td class="afe-financial-data-entry">
+                                        <div class="total-cost"></div>
+                                        <input type="text" class="cost hidden" data-bind="totalCost: RemainingBudget_LC" />
+                                    </td>
+                                    <td class="afe-financial-data-entry">
+                                        <div class="total-cost"></div>
+                                        <input type="text" class="cost hidden" data-bind="totalCost: RemainingBudget_USD" />
+                                    </td>
+                                    <td>USD</td>
+                                </tr>
+
+                                <tr>
+                                    <td>3. i. Cash Payback (before interest)</td>
+                                    <td></td>
+                                    <td class="afe-financial-data-entry">
+                                        <input type="number" class="month" data-bind="value: CashPayback_Before" />
+                                    </td>
+                                    <td>Months</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left: 19px;">ii. Cash Payback (after interest)</td>
+                                    <td></td>
+                                    <td class="afe-financial-data-entry">
+                                        <input type="number" class="month" data-bind="value: CashPayback_After" />
+                                    </td>
+                                    <td>Months</td>
+                                </tr>
+                                <tr>
+                                    <td>4. Average Return on Total Assets (EBIT/Total Assets)</td>
+                                    <td></td>
+                                    <td class="afe-financial-data-entry">
+                                        <input type="text" class="working-interest" data-bind="value: AvgReturn" />
+                                    </td>
+                                    <td>%</td>
+                                </tr>
+                                <tr>
+                                    <td>5. Net Present Value</td>
+                                    <td></td>
+                                    <td class="afe-financial-data-entry">
+                                        <input class="cost" type="text" data-bind="cost: NPV().Text" style="width: 150px;" />
+                                    </td>
+                                    <td>USD</td>
+                                </tr>
+                                <tr>
+                                    <td>6. Internal Rate of Return</td>
+                                    <td></td>
+                                    <td class="afe-financial-data-entry">
+                                        <input type="text" class="working-interest" data-bind="value: IRR" />
+                                    </td>
+                                    <td>%</td>
+                                </tr>
+                                <tr>
+                                    <td>7. Net Write-off on Replaced Assets</td>
+                                    <td class="afe-financial-data-entry">
+                                        <input class="cost" type="text" data-bind="cost: WriteOff_LC().Text" style="width: 150px;" />
+                                    </td>
+                                    <td class="afe-financial-data-entry">
+                                        <div class="total-cost"></div>
+                                        <input type="text" class="cost hidden" data-bind="totalCost: WriteOff_USD" />
+                                    </td>
+                                    <td>USD</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4">
+                                        <h4>Guidelines</h4>
+                                        <table class="table guidelines-table">
+                                            <tr>
+                                                <td>Net Present Value</td>
+                                                <td>Greater than 0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Return On Total Assets</td>
+                                                <td>15% per annum</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cash Payback (after interest)</td>
+                                                <td>24 months or less is the target.  Greater than 36 months requires special justification.</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10. Approvers -->
+    <div class="row afe-group-row">
+        <div class="col-md-12 afe-group-outer">
+            <div class="col-md-12 afe-group no-padding">
+                <div class="box">
+                    <div class="box-header"><h5>Approvers</h5></div>
+                    <div class="box-content">
+
+                        <div class="row afe-group-row">
+                            <div class="col-md-6 afe-group-outer">
+                                <div class="col-md-12 afe-group no-padding">
+                                    <div class="box">
+                                        <div class="box-header"><h5>Required Approvers</h5></div>
+                                        <div class="box-content">
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <div class="data-value col-md-12" data-bind="foreach: DelegationChain">
+                                                        <div style="padding-bottom: 8px;">
+                                                            <span data-bind="text: Name"></span>
+                                                            <!-- ko with: Title -->
+                                                            - <span data-bind="text: $data"></span>
+                                                            <!-- /ko -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 afe-group-outer">
+                                <div class="col-md-12 afe-group no-padding">
+                                    <div class="box">
+                                        <div class="box-header"><h5>Additional Requested Approvers</h5></div>
+                                        <div class="box-content">
+                                            <div data-bind="foreach: AdditionalApproverDetails">
+                                                <p>
+                                                    <span class="data-value" data-bind="text: Name"></span>
+                                                    <!-- ko with: Title -->
+                                                    - <span data-bind="text: $data"></span>
+                                                    <!-- /ko -->
+                                                    <span class="btn btn-xs btn-default" style="margin-left: 8px;" data-bind="click: function(data, event) { $root.removeApprover(data); }">Remove</span>
+                                                </p>
+                                            </div>
+                                            <div id="btnRequestAdditionalApproval" class="btn btn-default btn-sm"><i class="fa fa-plus" style="padding-right: 5px;"></i>Request Additional Approval</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11. Author Information -->
+    <div class="row afe-group-row">
+        <div class="col-md-12 afe-group-outer">
+            <div class="col-md-12 afe-group no-padding">
+                <div class="box">
+                    <div class="box-header"><h5>Author Information</h5></div>
+                    <div class="box-content">
+                        <div class="row col-md-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">ACE Request Raised By</label>
+                                    <div class="col-md-10 data-value" data-bind="text: CreatorName"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 20px;">
+        <div class="col-md-12">
+            @*<div class="col-md-4">
+                    <a class="btn btn-danger" onclick="AfeCaptureFormHelper.ConfirmRestart()">Reset Form</a>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <a id="bottomValidityAnchor" class="btn btn-default" title="Form Invalid.  Click for details." onclick="AfeCaptureFormHelper.ShowFormValidationDetails()"><i class="fa fa-warning fa-lg text-danger"></i><span style="padding-left: 8px;">Form Status: Invalid</span></a>
+                </div>*@
+            <div class="col-md-12">
+                <div style="float: right;">
+                    <button id="btnSaveDraft" type="button" class="btn btn-default" onclick="AfeCaptureFormHelper.SaveDraftAfe()">Save Draft</button>
+                    <button id="btnSubmitAfe" type="button" class="btn btn-primary" onclick="AfeCaptureFormHelper.SaveAfe()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="modal-find-user" data-backdrop="static" style="top: 350px;">
+    <div id="progress-container">
+        <div class="modal-header">
+            <h4 class="modal-title">Find Additional Approver</h4>
+        </div>
+        <div class="modal-body">
+            <div id="find-user-form" class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-md-3">User ID</label>
+                    <input class="col-md-9" type="text" data-bind="value: Search.Id" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">First Name</label>
+                    <input class="col-md-9" type="text" data-bind="value: Search.Firstname" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">Last Name</label>
+                    <input class="col-md-9" type="text" data-bind="value: Search.Lastname" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">Email</label>
+                    <input class="col-md-9" type="email" data-bind="value: Search.Email" />
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        <button id="btnFindUser" type="button" class="btn btn-default">Find User</button>
+                    </div>
+                    <div id="find-user-warning" class="col-md-9 text-danger collapse" style="padding-top: 9px;">
+                        <p style="margin-left: -15px;">
+                            Please provide at least one of the following:
+                            <ul>
+                                <li>NT ID</li>
+                                <li>First Name</li>
+                                <li>Last Name</li>
+                                <li>Email</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="divFindUserResults" class="collapse" style="max-height: 150px; overflow-y: auto;" data-bind="foreach: SearchResults">
+                <div class="radio">
+                    <input type="radio" name="find-user-results" data-bind="value: FlexIdentifier, attr: { id: 'user-' + Id }" />
+                    <label data-bind="attr: { for: 'user-' + Id }"><span data-bind="text: Name"></span> | <span data-bind="text: Id"></span> | <span data-bind="text: Email"></span></label>
+                </div>
+            </div>
+            <div id="divNoResults" class="collapse">No users found.</div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" id="btnSaveUser" class="btn btn-default" data-dismiss="modal" disabled>Save</button>
+        </div>
+    </div>
+    <div id="find-user-progress" class="flex-update-progress collapse" data-container-id="progress-container"><div class="loader"></div></div>
+
+</div>
+
+<div id="afe-capture-progress" class="flex-update-progress collapse" data-container-id="afe-capture-container"><div class="loader"></div></div>
+
+<script type="text/javascript">
+    $().ready(function () {
+        var isSupplement = false;
+        @if (@Model.IsSupplement) {
+            <text>isSupplement = true;</text>
+        }
+
+        AfeCaptureFormHelper.InitializeViewModel(isSupplement, '@Model.AfeCreateType', +'@Model.AfeId', '@Model.CreatorName');
+    });
+</script>

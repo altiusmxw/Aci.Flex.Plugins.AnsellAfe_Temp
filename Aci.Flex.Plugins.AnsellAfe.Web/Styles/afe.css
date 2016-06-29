@@ -169,6 +169,10 @@ textarea {
         font-weight: 600;
     }
 
+.guidelines-table td {
+    border: none !important;
+}
+
 #afe-allocations tfoot td:not(:last-of-type) {
     border-right: 1px solid #aaa;
 }

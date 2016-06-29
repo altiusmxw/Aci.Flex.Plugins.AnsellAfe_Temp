@@ -70,7 +70,7 @@ namespace Aci.Flex.Plugins.AnsellAfe.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                      "~/Content/_debug/bootstrap.css",
                      "~/Content/_debug/bootstrap-theme.css",
-                     "~/Content/_debug/bootstrap-modal.css",
+                     "~/Styles/_debug/bootstrap/bootstrap-modal.css",
                      "~/Content/_debug/bootstrap-modal-bs3patch.css",
                      "~/Styles/_debug/Source/base.css",
                      "~/Styles/_debug/Source/box.css",

@@ -14,8 +14,18 @@ namespace Aci.Flex.Plugins.AnsellAfe.Web.Controllers
     public class AfeCaptureController : BaseAnsellAfeController
     {
         public override string ControllerName { get { return "AfeCapture"; } }
+        
+        public ActionResult Index()
+        {
+            AfeCaptureFormOptions options = new AfeCaptureFormOptions();
 
-        // GET: AfeCapture
+#if DEBUG
+            return View("Options", options);
+#else
+            return this.RazorView("Options", options);
+#endif
+        }
+        
         public ActionResult New()
         {
             AfeInitializationData afeData = new AfeInitializationData()
@@ -26,10 +36,46 @@ namespace Aci.Flex.Plugins.AnsellAfe.Web.Controllers
 
 #if DEBUG
             afeData.CreatorName = "Michael Welch";
-            return View("Index", afeData);
+            return View("Form", afeData);
 #else
             afeData.CreatorName = LogOnHelper.CurrentLogOnContext.User.Name;
-            return this.RazorView("Index", afeData);
+            return this.RazorView("Form", afeData);
+#endif
+        }
+        
+        public ActionResult Clone(AfeCaptureFormOptions options)
+        {
+            AfeInitializationData afeData = new AfeInitializationData()
+            {
+                IsSupplement = false,
+                AfeCreateType = AfeCreateType.Clone,
+                AfeId = options.SelectedAfeId
+            };
+
+#if DEBUG
+            afeData.CreatorName = "Michael Welch";
+            return View("Form", afeData);
+#else
+            afeData.CreatorName = LogOnHelper.CurrentLogOnContext.User.Name;
+            return this.RazorView("Form", afeData);
+#endif
+        }
+
+        public ActionResult Supplement(AfeCaptureFormOptions options)
+        {
+            AfeInitializationData afeData = new AfeInitializationData()
+            {
+                IsSupplement = true,
+                AfeCreateType = AfeCreateType.New,
+                AfeId = options.SelectedAfeId
+            };
+
+#if DEBUG
+            afeData.CreatorName = "Michael Welch";
+            return View("Form", afeData);
+#else
+            afeData.CreatorName = LogOnHelper.CurrentLogOnContext.User.Name;
+            return this.RazorView("Form", afeData);
 #endif
         }
     }

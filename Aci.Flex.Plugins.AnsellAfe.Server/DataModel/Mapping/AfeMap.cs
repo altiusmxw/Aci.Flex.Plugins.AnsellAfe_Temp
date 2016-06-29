@@ -16,6 +16,7 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Mapping
             HasKey(x => x.AfeId);
 
             Property(x => x.AfeId).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(x => x.ProjectName).IsRequired();
             Property(x => x.CreateDate).IsRequired();
             Property(x => x.Creator).IsRequired();
 

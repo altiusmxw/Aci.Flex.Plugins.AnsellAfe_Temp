@@ -1,0 +1,170 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="289e4695-e137-43f1-9ecd-b8bc5a502d5e" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Budgets</ID>
+  <Name>Budgets</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="be7b0fe0-16d1-4b46-a28c-33a902a9c470">
+      <ID>Division</ID>
+      <Name>Division</Name>
+      <DimensionID>Division</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="59aa3b16-a7c0-46fb-86cd-bb8b5709f9dd">
+          <AttributeID>Division Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="d9d555b0-ff73-4c6c-873d-1fa69a7ac9e3">
+      <ID>Function</ID>
+      <Name>Function</Name>
+      <DimensionID>Function</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="137e2384-2466-4566-bf34-122d83b439ac">
+          <AttributeID>Function Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="b49c77a3-b918-44e5-be0a-09b1b7673e2a">
+      <ID>Site</ID>
+      <Name>Site</Name>
+      <DimensionID>Site</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="d2c75cc1-7aeb-475f-b70c-74ec388fb833">
+          <AttributeID>Site Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="754c6f9e-918d-40dd-af00-df68d0afd834">
+          <AttributeID>Region</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="1e7903ce-8cce-4fac-89d2-881247d04214">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="cfea3be7-c00d-41a5-b443-b29512b31b10">
+      <ID>Fact Budget</ID>
+      <Name>Fact Budget</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="70c936b4-81e2-4683-accf-c01a1d315845">
+          <ID>Data</ID>
+          <Name>Data</Name>
+          <Source dwd:design-time-name="ad1d297b-fad1-4089-8653-5d2c9d811f4a">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="93c55b92-46bb-4cc4-8de4-62c63b9ae38c">
+              <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_FactBudget</TableID>
+              <ColumnID>Data</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="39d58248-496b-4779-9511-5c8572565359">
+          <CubeDimensionID>Division</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="5e70a72f-5f7b-4031-9619-57115a051752">
+              <AttributeID>Division Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="cc9d63a0-11b3-4d3f-beb5-92374129f538">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="29f60d7d-8152-41d2-ab3e-53cef4a045ff">
+                    <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_FactBudget</TableID>
+                    <ColumnID>DivisionId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f33f53f3-fcbe-4edc-8f39-0062d334d579">
+          <CubeDimensionID>Function</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="dbe4ad8f-fefd-4a39-8869-1f7cab9eed31">
+              <AttributeID>Function Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="fcc29743-6e2d-48d4-90a1-d0484597995f">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="14fe0946-41a3-4a83-86ab-1b7f6e6ce729">
+                    <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_FactBudget</TableID>
+                    <ColumnID>FunctionId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="4fb7c6ff-f48c-4e86-98aa-4b14c658be56">
+          <CubeDimensionID>Site</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="b3e72192-3888-4504-a923-82e0fc16186e">
+              <AttributeID>Site Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="3080738f-2367-4ad5-8d83-441a52a27e4a">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="88d82348-72eb-4e1d-b435-662e9b9e76c5">
+                    <TableID>_x0033_0d9d1be-bc80-4c66-a72c-07a02f411884_FactBudget</TableID>
+                    <ColumnID>SiteId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="e7a32e37-07c4-4ab1-b50c-9a1fc3e46263">
+    <DataSourceViewID>Flex_AnsellAfeDemo</DataSourceViewID>
+  </Source>
+</Cube>

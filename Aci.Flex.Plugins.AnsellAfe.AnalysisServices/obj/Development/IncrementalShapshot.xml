@@ -1,0 +1,110 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>Aci Flex Plugins AnsellAfe AnalysisServices</Database>
+    <Server>localhost</Server>
+    <ConnectionString>DataSource=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>oXNTOSMgkk50p4KowPLl6B00Aqk=6/28/2016 9:20:13 PM6/28/2016 9:01:49 PM</TimeStamp>
+        <ID>
+          <String>Flex_AnsellAfeDemo</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>pGEb7mTw8p9mF2ExP5L7wRnVsSw=6/28/2016 9:06:51 PM6/28/2016 9:02:40 PM</TimeStamp>
+        <ID>
+          <String>Flex_AnsellAfeDemo</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>d85JW9sEgqwVYDQCBxrIHRq0MzQ=6/28/2016 10:39:14 PM6/28/2016 9:07:22 PM</TimeStamp>
+        <ID>
+          <String>Afe</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>dmYiykAidEYl1XaEh5GrEQ9ioes=6/28/2016 9:14:30 PM6/28/2016 9:07:22 PM</TimeStamp>
+        <ID>
+          <String>Account</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>wwKcSSRMdBScRjBR4qZfH8UAkQE=6/28/2016 9:14:41 PM6/28/2016 9:07:22 PM</TimeStamp>
+        <ID>
+          <String>Division</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>tUlm9NozTQ03X7hMnatyeYFkr98=6/28/2016 9:14:53 PM6/28/2016 9:07:22 PM</TimeStamp>
+        <ID>
+          <String>Function</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>bpg5FmAvvo0F1j6nZoM0I7ft7SM=6/28/2016 9:15:34 PM6/28/2016 9:07:22 PM</TimeStamp>
+        <ID>
+          <String>Site</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>zwrln5y5um1s6XeM4DsK/7Qlcjk=6/28/2016 9:15:43 PM6/28/2016 9:07:22 PM</TimeStamp>
+        <ID>
+          <String>Nature</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>yP/z5/OoISXJrO85OIu58ihDO6w=6/28/2016 9:32:12 PM6/28/2016 9:07:21 PMcqs5MdQDsPImrMS2YizSu1D7uTw=6/28/2016 9:07:22 PM6/28/2016 9:07:21 PM</TimeStamp>
+        <ID>
+          <String>Financials</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>KNBMdRcebbTSoJ54tfusMEOTuCg=6/28/2016 9:21:01 PM6/28/2016 9:21:01 PM/CMud7J/+IU9zswa7MtUShEIU9w=6/28/2016 9:21:01 PM6/28/2016 9:21:01 PM</TimeStamp>
+        <ID>
+          <String>Budgets</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>ysGYAfvg+2eS5nT9dyO8ovLkVAM=6/28/2016 9:32:12 PM6/28/2016 9:21:25 PMc1Gk1lM9urRWPT2P0lks9ZIR1PU=6/28/2016 9:21:26 PM6/28/2016 9:21:25 PM</TimeStamp>
+        <ID>
+          <String>Actuals</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>MxiDYwG+vZJqrh7TdzQkvqW/nK0=6/28/2016 9:00:34 PM6/28/2016 9:00:34 PM</TimeStamp>
+      <ID>
+        <String>Aci Flex Plugins AnsellAfe AnalysisServices</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2016-06-29T03:39:41.076667Z</LastDeployed>
+</DeploymentSnapshot>

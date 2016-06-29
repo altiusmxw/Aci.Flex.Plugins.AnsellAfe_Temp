@@ -45,6 +45,21 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server.Interfaces
         decimal GetBudget(int divisionId, int functionId, int siteId, int year);
 
         [OperationContract]
-        SaveAfeReturnDetails SaveAfe(AfeSubmitData afeData, bool isDraft);
+        decimal GetPreviousAfeCosts(int divisionId, int functionId, int siteId, int year);
+
+        [OperationContract]
+        SaveAfeReturnDetails SaveAfe(Guid userIdentifier, AfeSubmitData afeData, bool isDraft);
+
+        [OperationContract]
+        IEnumerable<Afe> FindAfes(string searchTerm);
+
+        [OperationContract]
+        Afe GetAfe(long afeId);
+
+        [OperationContract]
+        IEnumerable<PersonInfo> FindUsers(string ntId, string firstname, string lastname, string email);
+
+        [OperationContract]
+        IEnumerable<PersonInfo> GetAuthorizationChain(int natureId, int divisionId, int functionId, decimal amount);
     }
 }

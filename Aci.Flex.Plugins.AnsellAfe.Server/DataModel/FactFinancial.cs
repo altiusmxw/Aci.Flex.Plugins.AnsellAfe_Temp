@@ -9,6 +9,8 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server.DataModel
     public class FactFinancial
     {
         public long FactId { get; set; }
+        public long AfeId { get; set; }
+        public int AccountId { get; set; }
         public int DivisionId { get; set; }
         public int FunctionId { get; set; }
         public int SiteId { get; set; }

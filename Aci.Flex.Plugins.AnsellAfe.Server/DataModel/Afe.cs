@@ -10,11 +10,12 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server.DataModel
     {
         public long AfeId { get; set; }
         public DateTime CreateDate { get; set; }
+        public string ProjectName { get; set; }
         public int DivisionId { get; set; }
         public int FunctionId { get; set; }
         public int SiteId { get; set; }
         public string ExpenditureType { get; set; }
-        public string StateGateProjectId { get; set; }
+        public string StageGateProjectId { get; set; }
         public string ReferenceNo { get; set; }
         public int NatureId { get; set; }
         public int PurposeId { get; set; }

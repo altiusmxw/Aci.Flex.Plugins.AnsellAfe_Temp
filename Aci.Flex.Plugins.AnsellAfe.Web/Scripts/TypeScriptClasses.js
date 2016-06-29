@@ -13,6 +13,7 @@ var Aci;
                         var Afe = (function () {
                             function Afe() {
                                 this.AfeId = ko.observable();
+                                this.ProjectName = ko.observable();
                                 this.CreateDate = ko.observable();
                                 this.OriginalAfeId = ko.observable();
                                 this.DivisionId = ko.observable();
@@ -22,6 +23,13 @@ var Aci;
                                 this.PurposeId = ko.observable();
                                 this.CurrencyId = ko.observable();
                                 this.ExpenditureType = ko.observable();
+                                this.StageGateProjectId = ko.observable();
+                                this.ReferenceNo = ko.observable();
+                                this.Description = ko.observable();
+                                this.Proposal = ko.observable();
+                                this.ProjectBenefits = ko.observable();
+                                this.ProjectRisks = ko.observable();
+                                this.ControlMeasures = ko.observable();
                             }
                             return Afe;
                         }());
@@ -78,6 +86,18 @@ var Aci;
                             return Currency;
                         }());
                         DataModel.Currency = Currency;
+                        var Authorization = (function () {
+                            function Authorization() {
+                                this.AuthorizationId = ko.observable();
+                                this.AuthorizationCategoryId = ko.observable();
+                                this.UserIdentifier = ko.observable();
+                                this.ManagerIdentifer = ko.observable();
+                                this.Authority = ko.observable();
+                                this.UserTitle = ko.observable();
+                            }
+                            return Authorization;
+                        }());
+                        DataModel.Authorization = Authorization;
                     })(DataModel = Server.DataModel || (Server.DataModel = {}));
                 })(Server = AnsellAfe.Server || (AnsellAfe.Server = {}));
             })(AnsellAfe = Plugins.AnsellAfe || (Plugins.AnsellAfe = {}));
@@ -108,6 +128,8 @@ var Aci;
                             function AfeSubmitData() {
                                 this.Afe = ko.observable(new Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Afe());
                                 this.Financials = ko.observableArray([]);
+                                this.Approvers = ko.observableArray([]);
+                                this.AdditionalApprovers = ko.observableArray([]);
                             }
                             return AfeSubmitData;
                         }());

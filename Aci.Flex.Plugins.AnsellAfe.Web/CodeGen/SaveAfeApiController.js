@@ -7,7 +7,7 @@ var Flex;
             function SaveAfe(afe) {
                 var baseUrl = $.url("portal");
                 var typeHint = "Aci.Flex.Plugins.AnsellAfe.Server.Objects.SaveAfeReturnDetails";
-                var targetUrl = baseUrl + "api/saveafeapi/saveafe";
+                var targetUrl = baseUrl + "api/saveafeapi/SaveAfe";
                 var payload = ko.toJSON(afe);
                 return Aci.Flex.Portal.ServiceHelper.PostData(targetUrl, payload);
             }
@@ -22,7 +22,7 @@ var Flex;
             function SaveDraftAfe(afe) {
                 var baseUrl = $.url("portal");
                 var typeHint = "Aci.Flex.Plugins.AnsellAfe.Server.Objects.SaveAfeReturnDetails";
-                var targetUrl = baseUrl + "api/saveafeapi/savedraftafe";
+                var targetUrl = baseUrl + "api/saveafeapi/SaveDraftAfe";
                 var payload = ko.toJSON(afe);
                 return Aci.Flex.Portal.ServiceHelper.PostData(targetUrl, payload);
             }

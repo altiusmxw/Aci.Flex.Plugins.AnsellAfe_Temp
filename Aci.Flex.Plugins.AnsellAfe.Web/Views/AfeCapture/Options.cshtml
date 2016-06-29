@@ -1,0 +1,90 @@
+﻿@model Aci.Flex.Plugins.AnsellAfe.Web.Models.AfeCaptureFormOptions
+
+@{
+    Layout = "~/Views/Shared/_AfeLayout.cshtml";
+#if DEBUG
+        ;
+    <script src="@Url.Content("~/Scripts/AfeCapture/afecapture-options.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Scripts/validator.js?v=1.0")"></script>
+    <script src="@Url.Content("~/CodeGen/CommonAfeApiController.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Scripts/TypeScriptClasses.js?v=1.0")"></script>
+#else
+    ;
+    <script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.AfeCapture.afecapture-options.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.Validators.validator.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Resources/CodeGen/Aci.Flex.Plugins.AnsellAfe.Web.CodeGen.CommonAfeApiController.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.TypeScriptClasses.js?v=1.0")"></script>
+#endif
+}
+
+<div class="action-nav-normal">
+    <div class="action-nav-row action-nav-line row">
+        <div class="col-sm-4 action-nav-button">
+            <a href='@Url.Action("New", "AfeCapture")' title="Create New AFE">
+                <i class="fa fa-file-text-o fa-4x"></i>
+                <span>Create New AFE</span>
+            </a>
+        </div>
+        <div class="col-sm-4 action-nav-button">
+            <a onclick="AfeCaptureOptions.ShowOptions('clone')" title="Clone Existing AFE">
+                <i class="fa fa-files-o fa-4x"></i>
+                <span>Clone Existing AFE</span>
+            </a>
+        </div>
+        <div class="col-sm-4 action-nav-button">
+            <a onclick="AfeCaptureOptions.ShowOptions('supplement')" title="Create Supplement AFE">
+                <i class="fa fa-clipboard fa-4x"></i>
+                <span>Create Supplement AFE</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="modal-options" data-backdrop="static" class="modal fade" style="top: 200px;">
+    <div class="modal-header">
+        <h4 class="modal-title"><span id="options-header"></span></h4>
+    </div>
+    <div class="modal-body form-horizontal">
+        <div id="search-afe">
+            <div class="form-group">
+                <label class="col-md-5 control-label">Search for AFE</label>
+                <div class="col-md-7">
+                    <input type="text" id="txtSearch" name="txtSearch" placeholder="AFE Number | AFE ID | Project Name" class="form-control"
+                           data-bv-notempty data-bv-notempty-message="Search term is required." data-bv-trigger="keyup" data-bind="value: query" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-7 col-md-offset-5">
+                    <button type="button" id="btnSearch" class="btn btn-default btn-sm" onclick="AfeCaptureOptions.SearchAfe()" disabled>Search</button>
+                    <img id="search-indicator" src='@Url.Content("~/Images/loader.gif")' class="collapse" style="padding-left: 10px;" />
+                </div>
+            </div>
+
+            <div id="afe-results" class="collapsed">
+                <div class="form-group">
+                    <label class="col-md-5 control-label">AFE Search Results</label>
+                    <div class="col-md-7">
+                        <div style="max-height: 150px; overflow-y: auto;" data-bind="foreach: foundAfes">
+                            <div class="radio">
+                                @Html.RadioButtonFor(m => m.SelectedAfeId, string.Empty, new { data_bind = "value: AfeId, attr: { id: 'afe-' + AfeId() }" })
+                                <label data-bind="text: ProjectName(), attr: { for: 'afe-' + AfeId() }"></label>
+                            </div>
+                        </div>
+                        <div id="no-afes" data-bind="visible: foundAfes().length == 0" style="padding-top: 7px;">No AFEs found.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button id="btn-option-submit" type="submit" class="btn btn-primary" onclick="AfeCaptureOptions.SubmitAfeOptions()"></button>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $().ready(function () {
+        AfeCaptureOptions.InitializeOptions();
+    });
+</script>

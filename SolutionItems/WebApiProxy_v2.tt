@@ -106,6 +106,9 @@
 		if (type == "decimal")
 			return "number";
 
+		if (type == "long")
+			return "number";
+
 		if (type == "System.String")
 			return "string";
 
@@ -184,7 +187,7 @@ module Flex.ApiClient.<#=clazz.Name.Replace("Controller", String.Empty) #> {
 			var createPayload= "";
 			var route = Attributes(f).SingleOrDefault(a=>a.Name == "Route");
 
-			var queryStringText = route.Value.Replace("\"",String.Empty);
+			var queryStringText = ""; //"\""; //route.Value.Replace("\"",String.Empty);
 
             var koMap = returnType != "string";
 			
@@ -200,13 +203,16 @@ module Flex.ApiClient.<#=clazz.Name.Replace("Controller", String.Empty) #> {
 				if (isPost)
 					createPayload = "    var payload = ko.toJSON(" + param.Name +");";
 
-				if (queryStringText.Contains(param.Name))
+				queryString.Add(
+					string.Format("{0}=\" + {0}", param.Name));
+
+				/*if (queryStringText.Contains(param.Name))
 				{
 					var f1 = String.Format("{{{0}}}", param.Name);
 					var f2 = String.Format("\" + {0} + \"", param.Name);
 
 					queryStringText = queryStringText.Replace(f1, f2);
-				}
+				}*/
 				/*else
 				{
 					if (isPost)
@@ -235,6 +241,9 @@ module Flex.ApiClient.<#=clazz.Name.Replace("Controller", String.Empty) #> {
 			{
 				postPayload = "payload";
 			}
+			
+			if (f.Parameters.Count > 0 & isGet)
+				queryStringText = "+\""+"?" + string.Join("+ \"&", queryString);
 		   
 			string callingFunction= "";
 		   
@@ -274,7 +283,7 @@ export function <#=f.Name#>(<#=string.Join(", ", functionParameters.ToList()) #>
 {
 	var baseUrl = $.url("portal");
 	var typeHint = "<#=baseType#>";
-	var targetUrl = baseUrl + "<#=routePrefix#>/<#=queryStringText#>";
+	var targetUrl = baseUrl + "<#=routePrefix#>/<#=f.Name#>"<#=queryStringText#>;
 <#=            createPayload#>
 	return <#=callingFunction#>;
 }

@@ -271,6 +271,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CodeGen\CommonAfeApiController.js" />
+    <Content Include="CodeGen\SaveAfeApiController.js" />
     <Content Include="CodeGen\WebApiProxy_v2.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>WebApiProxy_v21.ts</LastGenOutput>
@@ -290,6 +291,8 @@
     <EmbeddedResource Include="Scripts\TypeScriptClasses.js" />
     <EmbeddedResource Include="Scripts\common-helper.js" />
     <EmbeddedResource Include="Scripts\money-view.js" />
+    <EmbeddedResource Include="Scripts\AfeCapture\afecapture-options.js" />
+    <EmbeddedResource Include="Scripts\validator.js" />
     <Content Include="Scripts\_debug\afe-debug-variables.js" />
     <Content Include="Scripts\_debug\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\_debug\bootstrap-modal.js" />
@@ -529,9 +532,9 @@
     <Content Include="Styles\_debug\Source\uniform_default.css" />
     <Content Include="Styles\_debug\sweetalert2.css" />
     <Content Include="Styles\_debug\xcharts.css" />
-    <Content Include="Views\AfeCapture\Index.cshtml">
+    <Content Include="Views\AfeCapture\Form.cshtml">
       <Generator>RazorGenerator</Generator>
-      <LastGenOutput>Index.generated.cs</LastGenOutput>
+      <LastGenOutput>Form.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\web.config" />
     <Content Include="Views\Shared\_AfeLayout.cshtml">
@@ -560,6 +563,10 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\AfeCapture\Options.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Options.generated.cs</LastGenOutput>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -580,6 +587,9 @@
     </Compile>
     <Compile Include="..\Aci.Flex.Plugins.AnsellAfe.Server\DataModel\Afe.cs">
       <Link>Shared\Afe.cs</Link>
+    </Compile>
+    <Compile Include="..\Aci.Flex.Plugins.AnsellAfe.Server\DataModel\Authorization.cs">
+      <Link>Shared\Authorization.cs</Link>
     </Compile>
     <Compile Include="..\Aci.Flex.Plugins.AnsellAfe.Server\DataModel\Currency.cs">
       <Link>Shared\Currency.cs</Link>
@@ -626,12 +636,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AfeCaptureFormOptions.cs" />
     <Compile Include="Models\AfeInitializationData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\AfeCapture\Index.generated.cs">
+    <Compile Include="Views\AfeCapture\Form.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Index.cshtml</DependentUpon>
+      <DependentUpon>Form.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AfeCapture\Options.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Options.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Views\Shared\_AfeLayout.generated.cs">
       <AutoGen>True</AutoGen>
@@ -657,6 +673,7 @@
       <DependentUpon>WebApiProxy_v2.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Scripts\AfeCapture\afecapture-form.ts" />
+    <TypeScriptCompile Include="Scripts\AfeCapture\afecapture-options.ts" />
     <TypeScriptCompile Include="Scripts\common-helper.ts" />
     <TypeScriptCompile Include="Scripts\Enum.ts" />
     <TypeScriptCompile Include="Scripts\money-view.ts" />
@@ -664,6 +681,7 @@
     <TypeScriptCompile Include="Scripts\TypeScriptClasses.ts" />
     <TypeScriptCompile Include="Scripts\typings\ansell-afe-typings.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery.inputmask.d.ts" />
+    <TypeScriptCompile Include="Scripts\validator.ts" />
     <TypeScriptCompile Include="TypeScriptReference\CodeGen\WebApiProxy.d.ts" />
     <TypeScriptCompile Include="TypeScriptReference\Scripts\typings\bootstrap\bootstrap.d.ts" />
     <TypeScriptCompile Include="TypeScriptReference\Scripts\typings\d3\d3.d.ts" />

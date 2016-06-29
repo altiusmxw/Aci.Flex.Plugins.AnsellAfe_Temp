@@ -24,7 +24,7 @@ namespace Aci.Flex.Plugins.AnsellAfe.Web.Controllers.Api
         {
             try
             {
-                var returnDetails = await AnsellAfeServiceHelper.UseAnsellAfeServiceAsync(s => s.SaveAfeAsync(afe, false));
+                var returnDetails = await AnsellAfeServiceHelper.UseAnsellAfeServiceAsync(s => s.SaveAfeAsync(m_UserIdentifier, afe, false));
                 return Ok(returnDetails);
             }
             catch (Exception ex)
@@ -40,7 +40,7 @@ namespace Aci.Flex.Plugins.AnsellAfe.Web.Controllers.Api
         {
             try
             {
-                var returnDetails = await AnsellAfeServiceHelper.UseAnsellAfeServiceAsync(s => s.SaveAfeAsync(afe, true));
+                var returnDetails = await AnsellAfeServiceHelper.UseAnsellAfeServiceAsync(s => s.SaveAfeAsync(m_UserIdentifier, afe, true));
                 return Ok(returnDetails);
             }
             catch (Exception ex)

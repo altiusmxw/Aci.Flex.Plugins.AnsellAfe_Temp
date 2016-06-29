@@ -111,3 +111,4 @@ C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.Ans
 C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Web\bin\Thinktecture.IdentityModel.Client.Net45.pdb
 C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Web\obj\Release\Aci.Flex.Plugins.AnsellAfe.Web.dll
 C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Web\obj\Release\Aci.Flex.Plugins.AnsellAfe.Web.pdb
+C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Web\obj\Release\Aci.Flex.Plugins.AnsellAfe.Web.csprojResolveAssemblyReference.cache

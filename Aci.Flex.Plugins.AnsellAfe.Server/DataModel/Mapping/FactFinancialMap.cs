@@ -16,6 +16,8 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server.DataModel.Mapping
             HasKey(x => x.FactId);
 
             Property(x => x.FactId).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(x => x.AfeId).IsRequired();
+            Property(x => x.AccountId).IsRequired();
             Property(x => x.DivisionId).IsRequired();
             Property(x => x.FunctionId).IsRequired();
             Property(x => x.SiteId).IsRequired();
