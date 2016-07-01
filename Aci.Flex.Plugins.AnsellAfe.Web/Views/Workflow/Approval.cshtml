@@ -1,0 +1,283 @@
+﻿@model Aci.Flex.Server.Workflow.FlexActivityMetadata
+
+@{
+    Layout = "~/Views/Shared/_AfeLayout.cshtml";
+#if DEBUG
+        ;
+    <script src="@Url.Content("~/Scripts/TypeScriptClasses.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Scripts/common-helper.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Scripts/afe-approval.js?v=1.0.1")"></script>
+    <script src="@Url.Content("~/CodeGen/CommonAfeApiController.js?v=1.0")"></script>
+#else
+    ;
+    <script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.TypeScriptClasses.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.common-helper.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.afe-approval.js?v=1.0")"></script>
+    <script src="@Url.Content("~/Resources/CodeGen/Aci.Flex.Plugins.AnsellAfe.Web.CodeGen.CommonAfeApiController.js?v=1.0")"></script>
+#endif
+}
+
+<div id="binding-container">
+    <div id="approval-modal" class="modal-body">
+
+        <div class="row afe-group-row">
+            <div class="col-md-12 afe-group-outer">
+                <div class="col-md-12 afe-group no-padding">
+                    <div class="box">
+                        <div class="box-header"><h5>ACE Request Information</h5></div>
+                        <div class="box-content">
+                            <div class="row col-md-6">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Creation Date</label>
+                                        <div class="data-value col-md-8" data-bind="text: CommonAfeHelper.getReadableDate(CreateDate())"></div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Project Name</label>
+                                        <div class="data-value col-md-8" data-bind="text: ProjectName"></div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Unit Division</label>
+                                        <div class="data-value col-md-8" data-bind="text: DivisionName"></div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Function</label>
+                                        <div class="data-value col-md-8" data-bind="text: FunctionName"></div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Site</label>
+                                        <div class="data-value col-md-8" data-bind="text: SiteName"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row col-md-6">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">AFE Type</label>
+                                        <div class="data-value col-md-8" data-bind="text: AfeType"></div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Stage-Gate Project ID</label>
+                                        <div class="data-value col-md-8" data-bind="text: StageGateProjectId"></div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Reference No</label>
+                                        <div class="data-value col-md-8" data-bind="text: ReferenceNo"></div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Capital or Revenue</label>
+                                        <div class="data-value col-md-8" data-bind="text: ExpenditureType"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row afe-group-row">
+            <div class="col-md-12 afe-group-outer">
+                <div class="col-md-12 afe-group no-padding">
+                    <div class="box">
+                        <div class="box-header"><h5>Currency & Rate</h5></div>
+                        <div class="box-content">
+                            <div class="row col-md-6">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Currency Code</label>
+                                        <div class="data-value col-md-8" data-bind="text: CurrencyCode"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row col-md-6">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Exchange Rate</label>
+                                        <div class="data-value col-md-8" data-bind="text: ExchangeRate"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row afe-group-row">
+            <div class="col-md-12 afe-group-outer">
+                <div class="col-md-12 afe-group no-padding">
+                    <div class="box">
+                        <div class="box-header"><h5>Financial Information</h5></div>
+                        <div class="box-content">
+                            <table name="afe-costs" class="table afe-table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th style="width: 250px;">Local Currency Amount</th>
+                                        <th style="width: 250px;">Amount or %</th>
+                                        <th style="width: 50px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1. Estimated Amount Required</td>
+                                        <td class="afe-financial-data-entry">
+                                            <div class="total-cost"></div>
+                                            <input type="text" class="cost hidden" data-bind="totalCost: Amount" />
+                                        </td>
+                                        <td class="afe-financial-data-entry">
+                                            <div class="total-cost"></div>
+                                            <input type="text" class="cost hidden" data-bind="totalCost: Amount_USD" />
+                                        </td>
+                                        <td>USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2. Budget Item</td>
+                                        <td class="afe-financial-data-entry">
+                                            <div class="total-cost"></div>
+                                            <input type="text" class="cost hidden" data-bind="totalCost: Budget_LC" />
+                                        </td>
+                                        <td class="afe-financial-data-entry">
+                                            <div class="total-cost"></div>
+                                            <input type="text" class="cost hidden" data-bind="totalCost: Budget" />
+                                        </td>
+                                        <td>USD</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="padding-left: 19px;">2b. Previous AFEs</td>
+                                        <td class="afe-financial-data-entry">
+                                            <div class="total-cost"></div>
+                                            <input type="text" class="cost hidden" data-bind="totalCost: PrevAfe_LC" />
+                                        </td>
+                                        <td class="afe-financial-data-entry">
+                                            <div class="total-cost"></div>
+                                            <input type="text" class="cost hidden" data-bind="totalCost: PreviousAfes" />
+                                        </td>
+                                        <td>USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-left: 19px;">2c. Remaining Budget</td>
+                                        <td class="afe-financial-data-entry">
+                                            <div class="total-cost"></div>
+                                            <input type="text" class="cost hidden" data-bind="totalCost: RemainingBudget" />
+                                        </td>
+                                        <td class="afe-financial-data-entry">
+                                            <div class="total-cost"></div>
+                                            <input type="text" class="cost hidden" data-bind="totalCost: RemainingBudget_USD" />
+                                        </td>
+                                        <td>USD</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>3. i. Cash Payback (before interest)</td>
+                                        <td></td>
+                                        <td class="afe-financial-data-entry">
+                                            <div data-bind="text: CashBackBefore"></div>
+                                        </td>
+                                        <td>Months</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-left: 19px;">ii. Cash Payback (after interest)</td>
+                                        <td></td>
+                                        <td class="afe-financial-data-entry">
+                                            <div data-bind="text: CashBackAfter"></div>
+                                        </td>
+                                        <td>Months</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4. Average Return on Total Assets (EBIT/Total Assets)</td>
+                                        <td></td>
+                                        <td class="afe-financial-data-entry">
+                                            <span class="total-working-interest"></span>
+                                            <input type="text" class="working-interest hidden" style="width: 1px" data-bind="totalWi: ReturnOnAssets" />
+                                        </td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5. Net Present Value</td>
+                                        <td></td>
+                                        <td class="afe-financial-data-entry">
+                                            <div class="total-cost"></div>
+                                            <input type="text" class="cost hidden" data-bind="totalCost: NPV" />
+                                        </td>
+                                        <td>USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6. Internal Rate of Return</td>
+                                        <td></td>
+                                        <td class="afe-financial-data-entry">
+                                            <span class="total-working-interest"></span>
+                                            <input type="text" class="working-interest hidden" style="width: 1px" data-bind="totalWi: IRR" />
+                                        </td>
+                                        <td>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7. Net Write-off on Replaced Assets</td>
+                                        <td class="afe-financial-data-entry">
+                                            <div class="total-cost"></div>
+                                            <input type="text" class="cost hidden" data-bind="totalCost: NetWriteOff" />
+                                        </td>
+                                        <td class="afe-financial-data-entry">
+                                            <div class="total-cost"></div>
+                                            <input type="text" class="cost hidden" data-bind="totalCost: WriteOff_USD" />
+                                        </td>
+                                        <td>USD</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row afe-group-row">
+            <div class="col-md-12 afe-group-outer" style="margin-top: 20px;">
+                <div class="col-md-12 afe-group no-padding">
+                    <div class="box">
+                        <div class="box-header"><h5>Comments</h5></div>
+                        <div class="box-content">
+                            <textarea id="txtComments" rows="8" style="width: 100%;" data-bind="value: Comments"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="float: right;">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button id="btnRetract" type="button" class="btn btn-danger" onclick="ApprovalHelper.Reject()">Reject</button>
+                    <button id="btnRetract" type="button" class="btn btn-primary" onclick="ApprovalHelper.Approve()">Approve</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="approval-progress" class="flex-update-progress collapse" data-container-id="binding-container"><div class="loader"></div></div>
+</div>
+
+<script type="text/javascript">
+    ApprovalHelper.Initialize('@Model.WorkflowInstanceId');
+</script>

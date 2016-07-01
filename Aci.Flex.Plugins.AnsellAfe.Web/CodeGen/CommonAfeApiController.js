@@ -186,6 +186,48 @@ var Flex;
                 }, function (f) { return false; });
             }
             CommonAfeApi.ResolveGetApprovers = ResolveGetApprovers;
+            function RecallAfe(workflowId, comments) {
+                var baseUrl = $.url("portal");
+                var typeHint = "boolean";
+                var targetUrl = baseUrl + "api/commonafeapi/RecallAfe" + "?workflowId=" + workflowId + "&comments=" + comments;
+                return Aci.Flex.Portal.ServiceHelper.GetData(targetUrl, typeHint, true);
+            }
+            CommonAfeApi.RecallAfe = RecallAfe;
+            function ResolveRecallAfe(workflowId, comments, resolveTo) {
+                return RecallAfe(workflowId, comments).then(function (e) {
+                    resolveTo(e);
+                    return true;
+                }, function (f) { return false; });
+            }
+            CommonAfeApi.ResolveRecallAfe = ResolveRecallAfe;
+            function SubmitApproval(workflowId, isApproved, comments) {
+                var baseUrl = $.url("portal");
+                var typeHint = "boolean";
+                var targetUrl = baseUrl + "api/commonafeapi/SubmitApproval" + "?workflowId=" + workflowId + "&isApproved=" + isApproved + "&comments=" + comments;
+                return Aci.Flex.Portal.ServiceHelper.GetData(targetUrl, typeHint, true);
+            }
+            CommonAfeApi.SubmitApproval = SubmitApproval;
+            function ResolveSubmitApproval(workflowId, isApproved, comments, resolveTo) {
+                return SubmitApproval(workflowId, isApproved, comments).then(function (e) {
+                    resolveTo(e);
+                    return true;
+                }, function (f) { return false; });
+            }
+            CommonAfeApi.ResolveSubmitApproval = ResolveSubmitApproval;
+            function GetApprovalAfeDetails(workflowId) {
+                var baseUrl = $.url("portal");
+                var typeHint = "Aci.Flex.Plugins.AnsellAfe.Server.Objects.ApprovalAfeDetails";
+                var targetUrl = baseUrl + "api/commonafeapi/GetApprovalAfeDetails" + "?workflowId=" + workflowId;
+                return Aci.Flex.Portal.ServiceHelper.GetData(targetUrl, typeHint, true);
+            }
+            CommonAfeApi.GetApprovalAfeDetails = GetApprovalAfeDetails;
+            function ResolveGetApprovalAfeDetails(workflowId, resolveTo) {
+                return GetApprovalAfeDetails(workflowId).then(function (e) {
+                    resolveTo(e);
+                    return true;
+                }, function (f) { return false; });
+            }
+            CommonAfeApi.ResolveGetApprovalAfeDetails = ResolveGetApprovalAfeDetails;
         })(CommonAfeApi = ApiClient.CommonAfeApi || (ApiClient.CommonAfeApi = {}));
     })(ApiClient = Flex.ApiClient || (Flex.ApiClient = {}));
 })(Flex || (Flex = {}));

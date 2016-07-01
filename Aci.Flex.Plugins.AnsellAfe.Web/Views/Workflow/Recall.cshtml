@@ -1,0 +1,50 @@
+﻿@model Aci.Flex.Server.Workflow.FlexActivityMetadata
+
+@{
+    Layout = "~/Views/Shared/_AfeLayout.cshtml";
+#if DEBUG
+        ;
+        <script src="@Url.Content("~/Scripts/recall-afe.js?v=1.0.1")"></script>
+        <script src="@Url.Content("~/CodeGen/CommonAfeApiController.js?v=1.0")"></script>
+#else
+    ;
+        <script src="@Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.recall-afe.js?v=1.0")"></script>
+        <script src="@Url.Content("~/Resources/CodeGen/Aci.Flex.Plugins.AnsellAfe.Web.CodeGen.CommonAfeApiController.js?v=1.0")"></script>
+#endif
+    }
+
+    <div id="binding-container">
+        <div id="recall-modal" class="modal-body">
+
+            <div class="row afe-group-row">
+                <div class="col-md-12 afe-group-outer" style="margin-top: 20px;">
+                    <div class="col-md-12 afe-group no-padding">
+                        <div class="box">
+                            <div class="box-header"><h5>Comments<span class="text-danger" style="font-size: 0.8em; padding-left: 8px;">*</span></h5></div>
+                            <div class="box-content">
+                                <textarea id="txtComments" rows="8" style="width: 100%;" data-bind="value: Comments"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="float: right;">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button id="btnRetract" type="button" class="btn btn-danger" onclick="RecallAfeHelper.Recall()">Recall</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="recall-progress" class="flex-update-progress collapse" data-container-id="binding-container"><div class="loader"></div></div>
+
+    </div>
+
+    <script type="text/javascript">
+        RecallAfeHelper.Initialize('@Model.WorkflowInstanceId');
+    </script>

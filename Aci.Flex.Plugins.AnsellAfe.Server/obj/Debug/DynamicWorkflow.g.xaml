@@ -1,0 +1,554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<afpasw:DynamicWorkflow xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:afc="clr-namespace:Aci.Flex.Core;assembly=Aci.Flex.Core.Net45" xmlns:afpasw="clr-namespace:Aci.Flex.Plugins.AnsellAfe.Server.Workflow;assembly=Aci.Flex.Plugins.AnsellAfe.Server" xmlns:afsw="clr-namespace:Aci.Flex.Server.Workflow;assembly=Aci.Flex.Server.Platform" xmlns:afsw1="clr-namespace:Aci.Flex.Server.Workflow;assembly=Aci.Flex.Plugins.Workflows" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:local="clr-namespace:Aci.Flex.Plugins.AnsellAfe.Server.Objects;assembly=Aci.Flex.Plugins.AnsellAfe.Server" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>Aci.Flex.Plugins.AnsellAfe.Server.Objects</x:String>
+      <x:String>Aci.Flex.Server.Workflow</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Aci.Flex.Core</AssemblyReference>
+      <AssemblyReference>Aci.Flex.Core.Net45</AssemblyReference>
+      <AssemblyReference>Aci.Flex.DataModel</AssemblyReference>
+      <AssemblyReference>Aci.Flex.Plugins.Workflows</AssemblyReference>
+      <AssemblyReference>Aci.Flex.Server.Platform</AssemblyReference>
+      <AssemblyReference>Autofac</AssemblyReference>
+      <AssemblyReference>EntityFramework</AssemblyReference>
+      <AssemblyReference>EntityFramework.SqlServer</AssemblyReference>
+      <AssemblyReference>Hyak.Common</AssemblyReference>
+      <AssemblyReference>LinqKit</AssemblyReference>
+      <AssemblyReference>log4net</AssemblyReference>
+      <AssemblyReference>Microsoft.Azure.Common</AssemblyReference>
+      <AssemblyReference>Microsoft.Azure.Common.NetFramework</AssemblyReference>
+      <AssemblyReference>Microsoft.Threading.Tasks</AssemblyReference>
+      <AssemblyReference>Microsoft.Threading.Tasks.Extensions</AssemblyReference>
+      <AssemblyReference>Microsoft.Threading.Tasks.Extensions.Desktop</AssemblyReference>
+      <AssemblyReference>Microsoft.WindowsAzure.Management</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>NodaTime</AssemblyReference>
+      <AssemblyReference>Owin</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.DataAnnotations</AssemblyReference>
+      <AssemblyReference>System.Configuration</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.IdentityModel.Tokens.Jwt</AssemblyReference>
+      <AssemblyReference>System.Net</AssemblyReference>
+      <AssemblyReference>System.Net.Http.Extensions</AssemblyReference>
+      <AssemblyReference>System.Net.Http.Primitives</AssemblyReference>
+      <AssemblyReference>System.Net.Http.WebRequest</AssemblyReference>
+      <AssemblyReference>System.Reactive.Core</AssemblyReference>
+      <AssemblyReference>System.Reactive.Interfaces</AssemblyReference>
+      <AssemblyReference>System.Reactive.Linq</AssemblyReference>
+      <AssemblyReference>System.Reactive.PlatformServices</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Net.Http</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Aci.Flex.Plugins.AnsellAfe.Server</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <afpasw:DynamicWorkflow.Implementation>
+    <Flowchart>
+      <Flowchart.Variables>
+        <Variable x:TypeArguments="local:DynamicApprovals" Name="Approvals" />
+        <Variable x:TypeArguments="x:Boolean" Name="IsRecall" />
+        <Variable x:TypeArguments="s:Guid" Name="Creator" />
+      </Flowchart.Variables>
+      <Flowchart.StartNode>
+        <FlowStep x:Name="__ReferenceID1">
+          <afsw:InteractiveFlexActivity x:TypeArguments="local:DynamicApprovals" RoleRestrictions="{x:Null}" TargetStateImageUri="{x:Null}" UserRestriction="{x:Null}" WorkflowViewName="{x:Null}" ActivityDescription="Submit" BookmarkName="Submit" DisplayName="Submit&lt;DynamicApprovals&gt;" ReadableBookmarkName="Submit" TargetState="Submitted" TrackActivity="True">
+            <afsw:InteractiveFlexActivity.ActivityCommentRequirement>
+              <InArgument x:TypeArguments="afsw:ActivityCommentRequirementType">
+                <mca:CSharpValue x:TypeArguments="afsw:ActivityCommentRequirementType">ActivityCommentRequirementType.None</mca:CSharpValue>
+              </InArgument>
+            </afsw:InteractiveFlexActivity.ActivityCommentRequirement>
+            <afsw:InteractiveFlexActivity.ChallengeResponseRequirement>
+              <InArgument x:TypeArguments="afsw:ChallengeResponseRequirementType">
+                <mca:CSharpValue x:TypeArguments="afsw:ChallengeResponseRequirementType">ChallengeResponseRequirementType.None</mca:CSharpValue>
+              </InArgument>
+            </afsw:InteractiveFlexActivity.ChallengeResponseRequirement>
+            <afsw:InteractiveFlexActivity.Result>
+              <OutArgument x:TypeArguments="local:DynamicApprovals">
+                <mca:CSharpReference x:TypeArguments="local:DynamicApprovals">Approvals</mca:CSharpReference>
+              </OutArgument>
+            </afsw:InteractiveFlexActivity.Result>
+            <afsw:InteractiveFlexActivity.TargetBookmarkImageUri>
+              <InArgument x:TypeArguments="x:String">
+                <mca:CSharpValue x:TypeArguments="x:String">WorkflowStatusImages.Submit</mca:CSharpValue>
+              </InArgument>
+            </afsw:InteractiveFlexActivity.TargetBookmarkImageUri>
+          </afsw:InteractiveFlexActivity>
+          <FlowStep.Next>
+            <FlowStep x:Name="__ReferenceID3">
+              <Assign>
+                <Assign.To>
+                  <OutArgument x:TypeArguments="s:Guid">
+                    <mca:CSharpReference x:TypeArguments="s:Guid">Creator</mca:CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="s:Guid">
+                    <mca:CSharpValue x:TypeArguments="s:Guid">Approvals.UserIdentifier</mca:CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+              <FlowStep.Next>
+                <FlowStep x:Name="__ReferenceID0">
+                  <Assign>
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">
+                        <mca:CSharpReference x:TypeArguments="x:Boolean">IsRecall</mca:CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <FlowStep.Next>
+                    <FlowStep x:Name="__ReferenceID2">
+                      <Parallel>
+                        <Parallel.Variables>
+                          <Variable x:TypeArguments="x:Boolean" Name="ParallelComplete" />
+                        </Parallel.Variables>
+                        <Parallel.CompletionCondition>
+                          <mca:CSharpValue x:TypeArguments="x:Boolean">ParallelComplete</mca:CSharpValue>
+                        </Parallel.CompletionCondition>
+                        <Flowchart DisplayName="Milestone" StartNode="{x:Null}" />
+                        <Sequence>
+                          <afsw:InteractiveFlexActivity x:TypeArguments="afsw:BaseWorkflowResumptionDetails" RoleRestrictions="{x:Null}" TargetStateImageUri="{x:Null}" ActivityDescription="Recall" BookmarkName="Recall" DisplayName="Recall&lt;BaseWorkflowResumptionDetails&gt;" ReadableBookmarkName="Recall" TargetState="Recalled" TrackActivity="True" WorkflowViewName="Recall">
+                            <afsw:InteractiveFlexActivity.ActivityCommentRequirement>
+                              <InArgument x:TypeArguments="afsw:ActivityCommentRequirementType">
+                                <mca:CSharpValue x:TypeArguments="afsw:ActivityCommentRequirementType">ActivityCommentRequirementType.Allowed</mca:CSharpValue>
+                              </InArgument>
+                            </afsw:InteractiveFlexActivity.ActivityCommentRequirement>
+                            <afsw:InteractiveFlexActivity.ChallengeResponseRequirement>
+                              <InArgument x:TypeArguments="afsw:ChallengeResponseRequirementType">
+                                <mca:CSharpValue x:TypeArguments="afsw:ChallengeResponseRequirementType">ChallengeResponseRequirementType.None</mca:CSharpValue>
+                              </InArgument>
+                            </afsw:InteractiveFlexActivity.ChallengeResponseRequirement>
+                            <afsw:InteractiveFlexActivity.TargetBookmarkImageUri>
+                              <InArgument x:TypeArguments="x:String">
+                                <mca:CSharpValue x:TypeArguments="x:String">WorkflowStatusImages.Fail</mca:CSharpValue>
+                              </InArgument>
+                            </afsw:InteractiveFlexActivity.TargetBookmarkImageUri>
+                            <afsw:InteractiveFlexActivity.UserRestriction>
+                              <InArgument x:TypeArguments="s:Guid">
+                                <mca:CSharpValue x:TypeArguments="s:Guid">Creator</mca:CSharpValue>
+                              </InArgument>
+                            </afsw:InteractiveFlexActivity.UserRestriction>
+                          </afsw:InteractiveFlexActivity>
+                          <Assign>
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Boolean">
+                                <mca:CSharpReference x:TypeArguments="x:Boolean">IsRecall</mca:CSharpReference>
+                              </OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign>
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Boolean">
+                                <mca:CSharpReference x:TypeArguments="x:Boolean">ParallelComplete</mca:CSharpReference>
+                              </OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                        <Sequence DisplayName="Approvals">
+                          <ParallelForEach x:TypeArguments="afc:PersonInfo" DisplayName="AdditionalApprovals">
+                            <ParallelForEach.Values>
+                              <InArgument x:TypeArguments="scg:IEnumerable(afc:PersonInfo)">
+                                <mca:CSharpValue x:TypeArguments="scg:IEnumerable(afc:PersonInfo)">Approvals.AdditionalApprovers</mca:CSharpValue>
+                              </InArgument>
+                            </ParallelForEach.Values>
+                            <ActivityAction x:TypeArguments="afc:PersonInfo">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="afc:PersonInfo" Name="user" />
+                              </ActivityAction.Argument>
+                              <If>
+                                <If.Condition>
+                                  <InArgument x:TypeArguments="x:Boolean">
+                                    <mca:CSharpValue x:TypeArguments="x:Boolean">!IsRecall</mca:CSharpValue>
+                                  </InArgument>
+                                </If.Condition>
+                                <If.Then>
+                                  <Sequence>
+                                    <Sequence.Variables>
+                                      <Variable x:TypeArguments="afsw1:ApprovalWorkflowResumptionDetails" Name="ApprovalResumptionDetails" />
+                                    </Sequence.Variables>
+                                    <afsw1:RequestNotificationActivity CustomArguments="{x:Null}" RoleRestrictions="{x:Null}">
+                                      <afsw1:RequestNotificationActivity.NotificationSourceId>
+                                        <InArgument x:TypeArguments="x:String">
+                                          <mca:CSharpValue x:TypeArguments="x:String">NotificationSources.ApprovalRequired</mca:CSharpValue>
+                                        </InArgument>
+                                      </afsw1:RequestNotificationActivity.NotificationSourceId>
+                                      <afsw1:RequestNotificationActivity.UserRestriction>
+                                        <InArgument x:TypeArguments="x:String">
+                                          <mca:CSharpValue x:TypeArguments="x:String">user.FlexIdentifier.ToString()</mca:CSharpValue>
+                                        </InArgument>
+                                      </afsw1:RequestNotificationActivity.UserRestriction>
+                                    </afsw1:RequestNotificationActivity>
+                                    <afsw:InteractiveFlexActivity x:TypeArguments="afsw1:ApprovalWorkflowResumptionDetails" RoleRestrictions="{x:Null}" TargetBookmarkImageUri="{x:Null}" TargetState="{x:Null}" TargetStateImageUri="{x:Null}" ActivityDescription="AdditionalApproval" DisplayName="Approve&lt;ApprovalWorkflowResumptionDetails&gt;" ReadableBookmarkName="Approval" TrackActivity="False" WorkflowViewName="Approval">
+                                      <afsw:InteractiveFlexActivity.ActivityCommentRequirement>
+                                        <InArgument x:TypeArguments="afsw:ActivityCommentRequirementType">
+                                          <mca:CSharpValue x:TypeArguments="afsw:ActivityCommentRequirementType">ActivityCommentRequirementType.Allowed</mca:CSharpValue>
+                                        </InArgument>
+                                      </afsw:InteractiveFlexActivity.ActivityCommentRequirement>
+                                      <afsw:InteractiveFlexActivity.BookmarkName>
+                                        <InArgument x:TypeArguments="x:String">
+                                          <mca:CSharpValue x:TypeArguments="x:String">string.Format("Approval_{0}", user.FlexIdentifier)</mca:CSharpValue>
+                                        </InArgument>
+                                      </afsw:InteractiveFlexActivity.BookmarkName>
+                                      <afsw:InteractiveFlexActivity.ChallengeResponseRequirement>
+                                        <InArgument x:TypeArguments="afsw:ChallengeResponseRequirementType">
+                                          <mca:CSharpValue x:TypeArguments="afsw:ChallengeResponseRequirementType">ChallengeResponseRequirementType.None</mca:CSharpValue>
+                                        </InArgument>
+                                      </afsw:InteractiveFlexActivity.ChallengeResponseRequirement>
+                                      <afsw:InteractiveFlexActivity.Result>
+                                        <OutArgument x:TypeArguments="afsw1:ApprovalWorkflowResumptionDetails">
+                                          <mca:CSharpReference x:TypeArguments="afsw1:ApprovalWorkflowResumptionDetails">ApprovalResumptionDetails</mca:CSharpReference>
+                                        </OutArgument>
+                                      </afsw:InteractiveFlexActivity.Result>
+                                      <afsw:InteractiveFlexActivity.UserRestriction>
+                                        <InArgument x:TypeArguments="s:Guid">
+                                          <mca:CSharpValue x:TypeArguments="s:Guid">user.FlexIdentifier</mca:CSharpValue>
+                                        </InArgument>
+                                      </afsw:InteractiveFlexActivity.UserRestriction>
+                                    </afsw:InteractiveFlexActivity>
+                                    <If>
+                                      <If.Condition>
+                                        <InArgument x:TypeArguments="x:Boolean">
+                                          <mca:CSharpValue x:TypeArguments="x:Boolean">ApprovalResumptionDetails.IsApproved</mca:CSharpValue>
+                                        </InArgument>
+                                      </If.Condition>
+                                      <If.Then>
+                                        <Sequence>
+                                          <afsw1:NonBlockingActivity ActivityDescription="{x:Null}" BookmarkName="Additional Approver Approved" ReadableBookmarkName="Additional Approver Approved">
+                                            <afsw1:NonBlockingActivity.Comment>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <mca:CSharpValue x:TypeArguments="x:String">ApprovalResumptionDetails.Comment</mca:CSharpValue>
+                                              </InArgument>
+                                            </afsw1:NonBlockingActivity.Comment>
+                                            <afsw1:NonBlockingActivity.TargetBookmarkImageUri>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <mca:CSharpValue x:TypeArguments="x:String">WorkflowStatusImages.Success</mca:CSharpValue>
+                                              </InArgument>
+                                            </afsw1:NonBlockingActivity.TargetBookmarkImageUri>
+                                            <afsw1:NonBlockingActivity.UserIdentifier>
+                                              <InArgument x:TypeArguments="s:Guid">
+                                                <mca:CSharpValue x:TypeArguments="s:Guid">ApprovalResumptionDetails.UserIdentifier</mca:CSharpValue>
+                                              </InArgument>
+                                            </afsw1:NonBlockingActivity.UserIdentifier>
+                                          </afsw1:NonBlockingActivity>
+                                          <afsw1:ChangeStateActivity TargetStateImageUrl="{x:Null}" StateName="Approval In Progress" />
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence>
+                                          <afsw1:NonBlockingActivity ActivityDescription="{x:Null}" BookmarkName="Additional Approver Rejected" ReadableBookmarkName="Additional Approver Rejected">
+                                            <afsw1:NonBlockingActivity.Comment>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <mca:CSharpValue x:TypeArguments="x:String">ApprovalResumptionDetails.Comment</mca:CSharpValue>
+                                              </InArgument>
+                                            </afsw1:NonBlockingActivity.Comment>
+                                            <afsw1:NonBlockingActivity.TargetBookmarkImageUri>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <mca:CSharpValue x:TypeArguments="x:String">WorkflowStatusImages.Fail</mca:CSharpValue>
+                                              </InArgument>
+                                            </afsw1:NonBlockingActivity.TargetBookmarkImageUri>
+                                            <afsw1:NonBlockingActivity.UserIdentifier>
+                                              <InArgument x:TypeArguments="s:Guid">
+                                                <mca:CSharpValue x:TypeArguments="s:Guid">ApprovalResumptionDetails.UserIdentifier</mca:CSharpValue>
+                                              </InArgument>
+                                            </afsw1:NonBlockingActivity.UserIdentifier>
+                                          </afsw1:NonBlockingActivity>
+                                          <afsw1:ChangeStateActivity TargetStateImageUrl="{x:Null}" StateName="Rejected" />
+                                          <afsw1:RequestNotificationActivity CustomArguments="{x:Null}" RoleRestrictions="{x:Null}">
+                                            <afsw1:RequestNotificationActivity.NotificationSourceId>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <mca:CSharpValue x:TypeArguments="x:String">NotificationSources.AfeRejected</mca:CSharpValue>
+                                              </InArgument>
+                                            </afsw1:RequestNotificationActivity.NotificationSourceId>
+                                            <afsw1:RequestNotificationActivity.UserRestriction>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <mca:CSharpValue x:TypeArguments="x:String">Creator.ToString()</mca:CSharpValue>
+                                              </InArgument>
+                                            </afsw1:RequestNotificationActivity.UserRestriction>
+                                          </afsw1:RequestNotificationActivity>
+                                          <Assign>
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">
+                                                <mca:CSharpReference x:TypeArguments="x:Boolean">IsRecall</mca:CSharpReference>
+                                              </OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </If.Then>
+                              </If>
+                            </ActivityAction>
+                          </ParallelForEach>
+                          <If>
+                            <If.Condition>
+                              <InArgument x:TypeArguments="x:Boolean">
+                                <mca:CSharpValue x:TypeArguments="x:Boolean">!IsRecall</mca:CSharpValue>
+                              </InArgument>
+                            </If.Condition>
+                            <If.Then>
+                              <ForEach x:TypeArguments="afc:PersonInfo" DisplayName="RequiredApprovals">
+                                <ForEach.Values>
+                                  <InArgument x:TypeArguments="scg:IEnumerable(afc:PersonInfo)">
+                                    <mca:CSharpValue x:TypeArguments="scg:IEnumerable(afc:PersonInfo)">Approvals.RequiredApprovers</mca:CSharpValue>
+                                  </InArgument>
+                                </ForEach.Values>
+                                <ActivityAction x:TypeArguments="afc:PersonInfo">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="afc:PersonInfo" Name="user" />
+                                  </ActivityAction.Argument>
+                                  <If>
+                                    <If.Condition>
+                                      <InArgument x:TypeArguments="x:Boolean">
+                                        <mca:CSharpValue x:TypeArguments="x:Boolean">!IsRecall</mca:CSharpValue>
+                                      </InArgument>
+                                    </If.Condition>
+                                    <If.Then>
+                                      <Sequence>
+                                        <Sequence.Variables>
+                                          <Variable x:TypeArguments="afsw1:ApprovalWorkflowResumptionDetails" Name="ApprovalResumptionDetails" />
+                                        </Sequence.Variables>
+                                        <afsw1:RequestNotificationActivity CustomArguments="{x:Null}" RoleRestrictions="{x:Null}">
+                                          <afsw1:RequestNotificationActivity.NotificationSourceId>
+                                            <InArgument x:TypeArguments="x:String">
+                                              <mca:CSharpValue x:TypeArguments="x:String">NotificationSources.ApprovalRequired</mca:CSharpValue>
+                                            </InArgument>
+                                          </afsw1:RequestNotificationActivity.NotificationSourceId>
+                                          <afsw1:RequestNotificationActivity.UserRestriction>
+                                            <InArgument x:TypeArguments="x:String">
+                                              <mca:CSharpValue x:TypeArguments="x:String">user.FlexIdentifier.ToString()</mca:CSharpValue>
+                                            </InArgument>
+                                          </afsw1:RequestNotificationActivity.UserRestriction>
+                                        </afsw1:RequestNotificationActivity>
+                                        <afsw:InteractiveFlexActivity x:TypeArguments="afsw1:ApprovalWorkflowResumptionDetails" RoleRestrictions="{x:Null}" TargetBookmarkImageUri="{x:Null}" TargetState="{x:Null}" TargetStateImageUri="{x:Null}" ActivityDescription="FinancialApproval" DisplayName="Approve&lt;ApprovalWorkflowResumptionDetails&gt;" ReadableBookmarkName="Approval" TrackActivity="False" WorkflowViewName="Approval">
+                                          <afsw:InteractiveFlexActivity.ActivityCommentRequirement>
+                                            <InArgument x:TypeArguments="afsw:ActivityCommentRequirementType">
+                                              <mca:CSharpValue x:TypeArguments="afsw:ActivityCommentRequirementType">ActivityCommentRequirementType.Allowed</mca:CSharpValue>
+                                            </InArgument>
+                                          </afsw:InteractiveFlexActivity.ActivityCommentRequirement>
+                                          <afsw:InteractiveFlexActivity.BookmarkName>
+                                            <InArgument x:TypeArguments="x:String">
+                                              <mca:CSharpValue x:TypeArguments="x:String">string.Format("Approval_{0}", user.FlexIdentifier)</mca:CSharpValue>
+                                            </InArgument>
+                                          </afsw:InteractiveFlexActivity.BookmarkName>
+                                          <afsw:InteractiveFlexActivity.ChallengeResponseRequirement>
+                                            <InArgument x:TypeArguments="afsw:ChallengeResponseRequirementType">
+                                              <mca:CSharpValue x:TypeArguments="afsw:ChallengeResponseRequirementType">ChallengeResponseRequirementType.None</mca:CSharpValue>
+                                            </InArgument>
+                                          </afsw:InteractiveFlexActivity.ChallengeResponseRequirement>
+                                          <afsw:InteractiveFlexActivity.Result>
+                                            <OutArgument x:TypeArguments="afsw1:ApprovalWorkflowResumptionDetails">
+                                              <mca:CSharpReference x:TypeArguments="afsw1:ApprovalWorkflowResumptionDetails">ApprovalResumptionDetails</mca:CSharpReference>
+                                            </OutArgument>
+                                          </afsw:InteractiveFlexActivity.Result>
+                                          <afsw:InteractiveFlexActivity.UserRestriction>
+                                            <InArgument x:TypeArguments="s:Guid">
+                                              <mca:CSharpValue x:TypeArguments="s:Guid">user.FlexIdentifier</mca:CSharpValue>
+                                            </InArgument>
+                                          </afsw:InteractiveFlexActivity.UserRestriction>
+                                        </afsw:InteractiveFlexActivity>
+                                        <If>
+                                          <If.Condition>
+                                            <InArgument x:TypeArguments="x:Boolean">
+                                              <mca:CSharpValue x:TypeArguments="x:Boolean">ApprovalResumptionDetails.IsApproved</mca:CSharpValue>
+                                            </InArgument>
+                                          </If.Condition>
+                                          <If.Then>
+                                            <Sequence>
+                                              <afsw1:NonBlockingActivity ActivityDescription="{x:Null}" BookmarkName="Financial Approver Approved" ReadableBookmarkName="Financial Approver Approved">
+                                                <afsw1:NonBlockingActivity.Comment>
+                                                  <InArgument x:TypeArguments="x:String">
+                                                    <mca:CSharpValue x:TypeArguments="x:String">ApprovalResumptionDetails.Comment</mca:CSharpValue>
+                                                  </InArgument>
+                                                </afsw1:NonBlockingActivity.Comment>
+                                                <afsw1:NonBlockingActivity.TargetBookmarkImageUri>
+                                                  <InArgument x:TypeArguments="x:String">
+                                                    <mca:CSharpValue x:TypeArguments="x:String">WorkflowStatusImages.Success</mca:CSharpValue>
+                                                  </InArgument>
+                                                </afsw1:NonBlockingActivity.TargetBookmarkImageUri>
+                                                <afsw1:NonBlockingActivity.UserIdentifier>
+                                                  <InArgument x:TypeArguments="s:Guid">
+                                                    <mca:CSharpValue x:TypeArguments="s:Guid">ApprovalResumptionDetails.UserIdentifier</mca:CSharpValue>
+                                                  </InArgument>
+                                                </afsw1:NonBlockingActivity.UserIdentifier>
+                                              </afsw1:NonBlockingActivity>
+                                              <afsw1:ChangeStateActivity TargetStateImageUrl="{x:Null}" StateName="Approval In Progress" />
+                                            </Sequence>
+                                          </If.Then>
+                                          <If.Else>
+                                            <Sequence>
+                                              <afsw1:NonBlockingActivity ActivityDescription="{x:Null}" BookmarkName="Financial Approver Rejected" ReadableBookmarkName="Financial Approver Rejected">
+                                                <afsw1:NonBlockingActivity.Comment>
+                                                  <InArgument x:TypeArguments="x:String">
+                                                    <mca:CSharpValue x:TypeArguments="x:String">ApprovalResumptionDetails.Comment</mca:CSharpValue>
+                                                  </InArgument>
+                                                </afsw1:NonBlockingActivity.Comment>
+                                                <afsw1:NonBlockingActivity.TargetBookmarkImageUri>
+                                                  <InArgument x:TypeArguments="x:String">
+                                                    <mca:CSharpValue x:TypeArguments="x:String">WorkflowStatusImages.Fail</mca:CSharpValue>
+                                                  </InArgument>
+                                                </afsw1:NonBlockingActivity.TargetBookmarkImageUri>
+                                                <afsw1:NonBlockingActivity.UserIdentifier>
+                                                  <InArgument x:TypeArguments="s:Guid">
+                                                    <mca:CSharpValue x:TypeArguments="s:Guid">ApprovalResumptionDetails.UserIdentifier</mca:CSharpValue>
+                                                  </InArgument>
+                                                </afsw1:NonBlockingActivity.UserIdentifier>
+                                              </afsw1:NonBlockingActivity>
+                                              <afsw1:ChangeStateActivity TargetStateImageUrl="{x:Null}" StateName="Rejected" />
+                                              <afsw1:RequestNotificationActivity CustomArguments="{x:Null}" RoleRestrictions="{x:Null}">
+                                                <afsw1:RequestNotificationActivity.NotificationSourceId>
+                                                  <InArgument x:TypeArguments="x:String">
+                                                    <mca:CSharpValue x:TypeArguments="x:String">NotificationSources.AfeRejected</mca:CSharpValue>
+                                                  </InArgument>
+                                                </afsw1:RequestNotificationActivity.NotificationSourceId>
+                                                <afsw1:RequestNotificationActivity.UserRestriction>
+                                                  <InArgument x:TypeArguments="x:String">
+                                                    <mca:CSharpValue x:TypeArguments="x:String">Creator.ToString()</mca:CSharpValue>
+                                                  </InArgument>
+                                                </afsw1:RequestNotificationActivity.UserRestriction>
+                                              </afsw1:RequestNotificationActivity>
+                                              <Assign>
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Boolean">
+                                                    <mca:CSharpReference x:TypeArguments="x:Boolean">IsRecall</mca:CSharpReference>
+                                                  </OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </Sequence>
+                                          </If.Else>
+                                        </If>
+                                      </Sequence>
+                                    </If.Then>
+                                  </If>
+                                </ActivityAction>
+                              </ForEach>
+                            </If.Then>
+                          </If>
+                          <Assign>
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Boolean">
+                                <mca:CSharpReference x:TypeArguments="x:Boolean">ParallelComplete</mca:CSharpReference>
+                              </OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </Parallel>
+                      <FlowStep.Next>
+                        <FlowDecision x:Name="__ReferenceID5">
+                          <FlowDecision.Condition>
+                            <mca:CSharpValue x:TypeArguments="x:Boolean">IsRecall</mca:CSharpValue>
+                          </FlowDecision.Condition>
+                          <FlowDecision.True>
+                            <FlowStep x:Name="__ReferenceID4">
+                              <afsw:InteractiveFlexActivity x:TypeArguments="local:DynamicApprovals" ActivityDescription="{x:Null}" RoleRestrictions="{x:Null}" TargetStateImageUri="{x:Null}" BookmarkName="Resubmit" DisplayName="Resubmit&lt;DynamicApprovals&gt;" ReadableBookmarkName="Resubmit" TargetState="Resubmitted" TrackActivity="True" WorkflowViewName="Resubmit">
+                                <afsw:InteractiveFlexActivity.ActivityCommentRequirement>
+                                  <InArgument x:TypeArguments="afsw:ActivityCommentRequirementType">
+                                    <mca:CSharpValue x:TypeArguments="afsw:ActivityCommentRequirementType">ActivityCommentRequirementType.None</mca:CSharpValue>
+                                  </InArgument>
+                                </afsw:InteractiveFlexActivity.ActivityCommentRequirement>
+                                <afsw:InteractiveFlexActivity.ChallengeResponseRequirement>
+                                  <InArgument x:TypeArguments="afsw:ChallengeResponseRequirementType">
+                                    <mca:CSharpValue x:TypeArguments="afsw:ChallengeResponseRequirementType">ChallengeResponseRequirementType.None</mca:CSharpValue>
+                                  </InArgument>
+                                </afsw:InteractiveFlexActivity.ChallengeResponseRequirement>
+                                <afsw:InteractiveFlexActivity.Result>
+                                  <OutArgument x:TypeArguments="local:DynamicApprovals">
+                                    <mca:CSharpReference x:TypeArguments="local:DynamicApprovals">Approvals</mca:CSharpReference>
+                                  </OutArgument>
+                                </afsw:InteractiveFlexActivity.Result>
+                                <afsw:InteractiveFlexActivity.TargetBookmarkImageUri>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <mca:CSharpValue x:TypeArguments="x:String">WorkflowStatusImages.Submit</mca:CSharpValue>
+                                  </InArgument>
+                                </afsw:InteractiveFlexActivity.TargetBookmarkImageUri>
+                                <afsw:InteractiveFlexActivity.UserRestriction>
+                                  <InArgument x:TypeArguments="s:Guid">
+                                    <mca:CSharpValue x:TypeArguments="s:Guid">Creator</mca:CSharpValue>
+                                  </InArgument>
+                                </afsw:InteractiveFlexActivity.UserRestriction>
+                              </afsw:InteractiveFlexActivity>
+                              <FlowStep.Next>
+                                <x:Reference>__ReferenceID0</x:Reference>
+                              </FlowStep.Next>
+                            </FlowStep>
+                          </FlowDecision.True>
+                          <FlowDecision.False>
+                            <FlowStep x:Name="__ReferenceID7">
+                              <afsw1:ChangeStateActivity TargetStateImageUrl="{x:Null}" StateName="Approved" />
+                              <FlowStep.Next>
+                                <FlowStep x:Name="__ReferenceID6">
+                                  <afsw1:RequestNotificationActivity CustomArguments="{x:Null}" RoleRestrictions="{x:Null}">
+                                    <afsw1:RequestNotificationActivity.NotificationSourceId>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <mca:CSharpValue x:TypeArguments="x:String">NotificationSources.AfeApproved</mca:CSharpValue>
+                                      </InArgument>
+                                    </afsw1:RequestNotificationActivity.NotificationSourceId>
+                                    <afsw1:RequestNotificationActivity.UserRestriction>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <mca:CSharpValue x:TypeArguments="x:String">Creator.ToString()</mca:CSharpValue>
+                                      </InArgument>
+                                    </afsw1:RequestNotificationActivity.UserRestriction>
+                                  </afsw1:RequestNotificationActivity>
+                                </FlowStep>
+                              </FlowStep.Next>
+                            </FlowStep>
+                          </FlowDecision.False>
+                        </FlowDecision>
+                      </FlowStep.Next>
+                    </FlowStep>
+                  </FlowStep.Next>
+                </FlowStep>
+              </FlowStep.Next>
+            </FlowStep>
+          </FlowStep.Next>
+        </FlowStep>
+      </Flowchart.StartNode>
+      <x:Reference>__ReferenceID1</x:Reference>
+      <x:Reference>__ReferenceID2</x:Reference>
+      <x:Reference>__ReferenceID0</x:Reference>
+      <x:Reference>__ReferenceID3</x:Reference>
+      <x:Reference>__ReferenceID4</x:Reference>
+      <x:Reference>__ReferenceID5</x:Reference>
+      <x:Reference>__ReferenceID6</x:Reference>
+      <x:Reference>__ReferenceID7</x:Reference>
+      <sads:DebugSymbol.Symbol>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</sads:DebugSymbol.Symbol>
+    </Flowchart>
+  </afpasw:DynamicWorkflow.Implementation>
+</afpasw:DynamicWorkflow>

@@ -271,7 +271,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CodeGen\CommonAfeApiController.js" />
-    <Content Include="CodeGen\SaveAfeApiController.js" />
+    <EmbeddedResource Include="CodeGen\SaveAfeApiController.js" />
     <Content Include="CodeGen\WebApiProxy_v2.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>WebApiProxy_v21.ts</LastGenOutput>
@@ -281,6 +281,23 @@
     <Content Include="Content\_debug\bootstrap.css" />
     <Content Include="Content\_debug\bootstrap.min.css" />
     <Content Include="Global.asax" />
+    <EmbeddedResource Include="Images\acr-approved.png" />
+    <EmbeddedResource Include="Images\acr-pending.png" />
+    <EmbeddedResource Include="Images\acr-rejected.png" />
+    <EmbeddedResource Include="Images\doa-approved.png" />
+    <EmbeddedResource Include="Images\doa-inprogress.png" />
+    <EmbeddedResource Include="Images\doa-pending.png" />
+    <EmbeddedResource Include="Images\doa-rejected.png" />
+    <EmbeddedResource Include="Images\lmjoa-complete.png" />
+    <EmbeddedResource Include="Images\lmjoa-inprogress.png" />
+    <EmbeddedResource Include="Images\lmjoa-pending.png" />
+    <EmbeddedResource Include="Images\no-sm.png" />
+    <EmbeddedResource Include="Images\submit-sm.png" />
+    <EmbeddedResource Include="Images\waiver-approved.gif" />
+    <EmbeddedResource Include="Images\waiver-rejected.gif" />
+    <EmbeddedResource Include="Images\warning.gif" />
+    <EmbeddedResource Include="Images\yes-sm.png" />
+    <EmbeddedResource Include="Images\Drawing1.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -293,6 +310,8 @@
     <EmbeddedResource Include="Scripts\money-view.js" />
     <EmbeddedResource Include="Scripts\AfeCapture\afecapture-options.js" />
     <EmbeddedResource Include="Scripts\validator.js" />
+    <EmbeddedResource Include="Scripts\recall-afe.js" />
+    <EmbeddedResource Include="Scripts\afe-approval.js" />
     <Content Include="Scripts\_debug\afe-debug-variables.js" />
     <Content Include="Scripts\_debug\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\_debug\bootstrap-modal.js" />
@@ -567,6 +586,14 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Options.generated.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\Workflow\Recall.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Recall.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Workflow\Approval.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Approval.generated.cs</LastGenOutput>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -615,6 +642,9 @@
     <Compile Include="..\Aci.Flex.Plugins.AnsellAfe.Server\Objects\AfeSubmitData.cs">
       <Link>Shared\AfeSubmitData.cs</Link>
     </Compile>
+    <Compile Include="..\Aci.Flex.Plugins.AnsellAfe.Server\Objects\ApprovalAfeDetails.cs">
+      <Link>Shared\ApprovalAfeDetails.cs</Link>
+    </Compile>
     <Compile Include="..\Aci.Flex.Plugins.AnsellAfe.Server\Objects\SaveAfeReturnDetails.cs">
       <Link>Shared\SaveAfeReturnDetails.cs</Link>
     </Compile>
@@ -659,6 +689,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Workflow\Approval.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Approval.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Workflow\Recall.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recall.cshtml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="CodeGen\CommonAfeApiController.ts">
@@ -672,11 +712,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WebApiProxy_v2.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\afe-approval.ts" />
     <TypeScriptCompile Include="Scripts\AfeCapture\afecapture-form.ts" />
     <TypeScriptCompile Include="Scripts\AfeCapture\afecapture-options.ts" />
     <TypeScriptCompile Include="Scripts\common-helper.ts" />
     <TypeScriptCompile Include="Scripts\Enum.ts" />
     <TypeScriptCompile Include="Scripts\money-view.ts" />
+    <TypeScriptCompile Include="Scripts\recall-afe.ts" />
     <TypeScriptCompile Include="Scripts\select-list-helper.ts" />
     <TypeScriptCompile Include="Scripts\TypeScriptClasses.ts" />
     <TypeScriptCompile Include="Scripts\typings\ansell-afe-typings.d.ts" />

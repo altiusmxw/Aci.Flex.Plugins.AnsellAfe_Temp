@@ -236,5 +236,56 @@ namespace Aci.Flex.Plugins.AnsellAfe.Web.Controllers.Api
                 return Ok(new List<Aci.Flex.Core.PersonInfo>());
             }
         }
+
+        [Route("recallafe")]
+        [ResponseType(typeof(bool))]
+        [HttpGet]
+        public async Task<IHttpActionResult> RecallAfe(string workflowId, string comments)
+        {
+            try
+            {
+                var chain = await AnsellAfeServiceHelper.UseAnsellAfeServiceAsync(s => s.RecallAfeAsync(workflowId, m_UserIdentifier, comments));
+                return Ok(chain);
+            }
+            catch (Exception ex)
+            {
+                Log.Exception(ex);
+                return Ok(false);
+            }
+        }
+
+        [Route("submitapproval")]
+        [ResponseType(typeof(bool))]
+        [HttpGet]
+        public async Task<IHttpActionResult> SubmitApproval(string workflowId, bool isApproved, string comments)
+        {
+            try
+            {
+                var chain = await AnsellAfeServiceHelper.UseAnsellAfeServiceAsync(s => s.SubmitApprovalAsync(workflowId, m_UserIdentifier, comments, isApproved));
+                return Ok(chain);
+            }
+            catch (Exception ex)
+            {
+                Log.Exception(ex);
+                return Ok(false);
+            }
+        }
+
+        [Route("getapprovalafedetails")]
+        [ResponseType(typeof(Aci.Flex.Plugins.AnsellAfe.Server.Objects.ApprovalAfeDetails))]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetApprovalAfeDetails(string workflowId)
+        {
+            try
+            {
+                var chain = await AnsellAfeServiceHelper.UseAnsellAfeServiceAsync(s => s.GetApprovalAfeDetailsAsync(workflowId));
+                return Ok(chain);
+            }
+            catch (Exception ex)
+            {
+                Log.Exception(ex);
+                return Ok(new Aci.Flex.Plugins.AnsellAfe.Server.Objects.ApprovalAfeDetails());
+            }
+        }
     }
 }

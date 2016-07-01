@@ -114,5 +114,16 @@ C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.Ans
 C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\bin\Debug\System.Reactive.Linq.xml
 C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\bin\Debug\System.Reactive.PlatformServices.xml
 C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Server.csproj.App.config
+C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\DynamicWorkflow.g.xaml
+C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Server.Workflow_DynamicWorkflow_BeforeInitializeComponentHelper.txt
+C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\_Aci.Flex.Plugins.AnsellAfe.Server.g.cs
+C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\DynamicWorkflow.g.cs
+C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Server.Workflow_DynamicWorkflow_BeforeInitializeComponentHelper.cs
+C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Server.csproj.XamlGeneratedCodeFileListAbsolute.txt
+C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Server.csproj.XamlGeneratedXamlFileListAbsolute.txt
+C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Server.csproj.FileListAbsolute.txt
 C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Server.dll
 C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Server.pdb
+C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Server.Workflow_DynamicWorkflow_CompiledExpressionRoot.cs
+C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\AC2C1ABA-CCF6-44D4-8127-588FD4D0A860-DeferredValidationErrors.xml
+C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Server\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Server.csprojResolveAssemblyReference.cache

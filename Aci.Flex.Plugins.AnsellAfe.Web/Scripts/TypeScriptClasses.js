@@ -142,6 +142,12 @@ var Aci;
                             return SaveAfeReturnDetails;
                         }());
                         Objects.SaveAfeReturnDetails = SaveAfeReturnDetails;
+                        var ApprovalAfeDetails = (function () {
+                            function ApprovalAfeDetails() {
+                            }
+                            return ApprovalAfeDetails;
+                        }());
+                        Objects.ApprovalAfeDetails = ApprovalAfeDetails;
                     })(Objects = Server.Objects || (Server.Objects = {}));
                 })(Server = AnsellAfe.Server || (AnsellAfe.Server = {}));
             })(AnsellAfe = Plugins.AnsellAfe || (Plugins.AnsellAfe = {}));

@@ -217,3 +217,4 @@ C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.Ans
 C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Web\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Web.csproj.App.config
 C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Web\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Web.dll
 C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Web\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Web.pdb
+C:\Local Source\Git\Demos\Ansell\Aci.Flex.Plugins.AnsellAfe\Aci.Flex.Plugins.AnsellAfe.Web\obj\Debug\Aci.Flex.Plugins.AnsellAfe.Web.csprojResolveAssemblyReference.cache

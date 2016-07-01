@@ -151,4 +151,33 @@ module Aci.Flex.Plugins.AnsellAfe.Server.Objects {
         AfeId: KnockoutObservable<number>;
         Success: KnockoutObservable<boolean>;
     }
+
+    export class ApprovalAfeDetails {
+        constructor() {
+        }
+
+        AfeId: KnockoutObservable<number>;
+        CreateDate: KnockoutObservable<Date>;
+        ProjectName: KnockoutObservable<string>;
+        DivisionName: KnockoutObservable<string>;
+        FunctionName: KnockoutObservable<string>;
+        SiteName: KnockoutObservable<string>;
+        AfeType: KnockoutObservable<string>;
+        StageGateProjectId: KnockoutObservable<string>;
+        ReferenceNo: KnockoutObservable<string>;
+        ExpenditureType: KnockoutObservable<string>;
+        ExchangeRate: KnockoutObservable<number>;
+        CurrencyCode: KnockoutObservable<string>;
+
+        Amount: KnockoutObservable<number>;
+        Budget: KnockoutObservable<number>;
+        PreviousAfes: KnockoutObservable<number>;
+        RemainingBudget: KnockoutObservable<number>;
+        CashBackBefore: KnockoutObservable<number>;
+        CashBackAfter: KnockoutObservable<number>;
+        ReturnOnAssets: KnockoutObservable<number>;
+        NPV: KnockoutObservable<number>;
+        IRR: KnockoutObservable<number>;
+        NetWriteOff: KnockoutObservable<number>;
+    }
 }

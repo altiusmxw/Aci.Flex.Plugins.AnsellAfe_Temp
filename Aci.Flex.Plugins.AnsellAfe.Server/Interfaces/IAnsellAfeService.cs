@@ -61,5 +61,14 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server.Interfaces
 
         [OperationContract]
         IEnumerable<PersonInfo> GetAuthorizationChain(int natureId, int divisionId, int functionId, decimal amount);
+
+        [OperationContract]
+        bool RecallAfe(string workflowId, Guid userIdentifier, string comments);
+
+        [OperationContract]
+        bool SubmitApproval(string workflowId, Guid userIdentifier, string comments, bool isApproved);
+
+        [OperationContract]
+        ApprovalAfeDetails GetApprovalAfeDetails(string workflowId);
     }
 }

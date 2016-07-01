@@ -3,6 +3,7 @@ using Aci.Flex.Core.Logging;
 using Aci.Flex.Interfaces;
 using Aci.Flex.Plugins.AnsellAfe.Server.DataModel;
 using Aci.Flex.Plugins.AnsellAfe.Server.Interfaces;
+using Aci.Flex.Plugins.AnsellAfe.Server.Objects;
 using Aci.Flex.Server.Core;
 using Aci.Flex.Server.Services;
 using System;
@@ -122,6 +123,21 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server
         public IEnumerable<PersonInfo> GetAuthorizationChain(int natureId, int divisionId, int functionId, decimal amount)
         {
             return GetAfeModule().GetAuthorizationChain(natureId, divisionId, functionId, amount);
+        }
+
+        public bool RecallAfe(string workflowId, Guid userIdentifier, string comments)
+        {
+            return GetAfeModule().RecallAfe(Guid.Parse(workflowId), userIdentifier, comments);
+        }
+
+        public bool SubmitApproval(string workflowId, Guid userIdentifier, string comments, bool isApproved)
+        {
+            return GetAfeModule().SubmitApproval(Guid.Parse(workflowId), userIdentifier, comments, isApproved);
+        }
+
+        public ApprovalAfeDetails GetApprovalAfeDetails(string workflowId)
+        {
+            return GetAfeModule().GetApprovalAfeDetails(Guid.Parse(workflowId));
         }
 
         #region IFlexService

@@ -128,10 +128,10 @@ WriteLiteral("></script>\r\n");
 
 WriteLiteral("    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 651), Tuple.Create("\"", 761)
+WriteAttribute("src", Tuple.Create(" src=\"", 651), Tuple.Create("\"", 750)
             
             #line 14 "..\..\Views\AfeCapture\Options.cshtml"
-, Tuple.Create(Tuple.Create("", 657), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.Validators.validator.js?v=1.0")
+, Tuple.Create(Tuple.Create("", 657), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.validator.js?v=1.0")
             
             #line default
             #line hidden
@@ -142,28 +142,28 @@ WriteLiteral("></script>\r\n");
 
 WriteLiteral("    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 785), Tuple.Create("\"", 897)
+WriteAttribute("src", Tuple.Create(" src=\"", 774), Tuple.Create("\"", 886)
             
             #line 15 "..\..\Views\AfeCapture\Options.cshtml"
-, Tuple.Create(Tuple.Create("", 791), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Resources/CodeGen/Aci.Flex.Plugins.AnsellAfe.Web.CodeGen.CommonAfeApiController.js?v=1.0")
+, Tuple.Create(Tuple.Create("", 780), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Resources/CodeGen/Aci.Flex.Plugins.AnsellAfe.Web.CodeGen.CommonAfeApiController.js?v=1.0")
             
             #line default
             #line hidden
-, 791), false)
+, 780), false)
 );
 
 WriteLiteral("></script>\r\n");
 
 WriteLiteral("    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 921), Tuple.Create("\"", 1028)
+WriteAttribute("src", Tuple.Create(" src=\"", 910), Tuple.Create("\"", 1017)
             
             #line 16 "..\..\Views\AfeCapture\Options.cshtml"
-, Tuple.Create(Tuple.Create("", 927), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.TypeScriptClasses.js?v=1.0")
+, Tuple.Create(Tuple.Create("", 916), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Resources/Scripts/Aci.Flex.Plugins.AnsellAfe.Web.Scripts.TypeScriptClasses.js?v=1.0")
             
             #line default
             #line hidden
-, 927), false)
+, 916), false)
 );
 
 WriteLiteral("></script>\r\n");
@@ -189,14 +189,14 @@ WriteLiteral(" class=\"col-sm-4 action-nav-button\"");
 
 WriteLiteral(">\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\'", 1205), Tuple.Create("\'", 1244)
+WriteAttribute("href", Tuple.Create(" href=\'", 1194), Tuple.Create("\'", 1233)
             
             #line 23 "..\..\Views\AfeCapture\Options.cshtml"
-, Tuple.Create(Tuple.Create("", 1212), Tuple.Create<System.Object, System.Int32>(Url.Action("New", "AfeCapture")
+, Tuple.Create(Tuple.Create("", 1201), Tuple.Create<System.Object, System.Int32>(Url.Action("New", "AfeCapture")
             
             #line default
             #line hidden
-, 1212), false)
+, 1201), false)
 );
 
 WriteLiteral(" title=\"Create New AFE\"");
@@ -320,14 +320,14 @@ WriteLiteral(" disabled>Search</button>\r\n                    <img");
 
 WriteLiteral(" id=\"search-indicator\"");
 
-WriteAttribute("src", Tuple.Create(" src=\'", 3066), Tuple.Create("\'", 3107)
+WriteAttribute("src", Tuple.Create(" src=\'", 3055), Tuple.Create("\'", 3096)
             
             #line 59 "..\..\Views\AfeCapture\Options.cshtml"
-, Tuple.Create(Tuple.Create("", 3072), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Images/loader.gif")
+, Tuple.Create(Tuple.Create("", 3061), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Images/loader.gif")
             
             #line default
             #line hidden
-, 3072), false)
+, 3061), false)
 );
 
 WriteLiteral(" class=\"collapse\"");

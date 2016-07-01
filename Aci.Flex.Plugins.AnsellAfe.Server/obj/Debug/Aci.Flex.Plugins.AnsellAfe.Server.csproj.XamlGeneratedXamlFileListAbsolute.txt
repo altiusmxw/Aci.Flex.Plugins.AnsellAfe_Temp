@@ -1,0 +1,2 @@
+obj\Debug\DynamicWorkflow.g.xaml
+obj\Debug\Aci.Flex.Plugins.AnsellAfe.Server.Workflow_DynamicWorkflow_BeforeInitializeComponentHelper.txt

@@ -77,6 +77,18 @@ namespace Aci.Flex.Plugins.AnsellAfe.Server.Interfaces
 			[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
 			Task<System.Collections.Generic.IEnumerable<Aci.Flex.Core.PersonInfo>> GetAuthorizationChainAsync(int natureId,int divisionId,int functionId,decimal amount);
 
+			[OperationContract]
+			[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
+			Task<bool> RecallAfeAsync(string workflowId,System.Guid userIdentifier,string comments);
+
+			[OperationContract]
+			[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
+			Task<bool> SubmitApprovalAsync(string workflowId,System.Guid userIdentifier,string comments,bool isApproved);
+
+			[OperationContract]
+			[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
+			Task<Aci.Flex.Plugins.AnsellAfe.Server.Objects.ApprovalAfeDetails> GetApprovalAfeDetailsAsync(string workflowId);
+
 			 
 	}
 }

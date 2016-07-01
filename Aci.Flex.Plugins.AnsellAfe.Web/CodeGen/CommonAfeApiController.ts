@@ -234,6 +234,60 @@ export function ResolveGetApprovers(natureId: number, divisionId: number, functi
 	}, (f) => {return false;});
 }
 
+export function RecallAfe(workflowId: string, comments: string): Q.Promise<boolean>
+{
+	var baseUrl = $.url("portal");
+	var typeHint = "boolean";
+	var targetUrl = baseUrl + "api/commonafeapi/RecallAfe"+"?workflowId=" + workflowId+ "&comments=" + comments;
+
+	return Aci.Flex.Portal.ServiceHelper.GetData<boolean>(targetUrl, typeHint, true);
+}
+
+export function ResolveRecallAfe(workflowId: string, comments: string, resolveTo: KnockoutObservable<boolean>) : Q.Promise<boolean>
+{
+	  return RecallAfe(workflowId, comments).then	((e) => 
+	  {
+		resolveTo(e); 
+		return true;
+	}, (f) => {return false;});
+}
+
+export function SubmitApproval(workflowId: string, isApproved: boolean, comments: string): Q.Promise<boolean>
+{
+	var baseUrl = $.url("portal");
+	var typeHint = "boolean";
+	var targetUrl = baseUrl + "api/commonafeapi/SubmitApproval"+"?workflowId=" + workflowId+ "&isApproved=" + isApproved+ "&comments=" + comments;
+
+	return Aci.Flex.Portal.ServiceHelper.GetData<boolean>(targetUrl, typeHint, true);
+}
+
+export function ResolveSubmitApproval(workflowId: string, isApproved: boolean, comments: string, resolveTo: KnockoutObservable<boolean>) : Q.Promise<boolean>
+{
+	  return SubmitApproval(workflowId, isApproved, comments).then	((e) => 
+	  {
+		resolveTo(e); 
+		return true;
+	}, (f) => {return false;});
+}
+
+export function GetApprovalAfeDetails(workflowId: string): Q.Promise<Aci.Flex.Plugins.AnsellAfe.Server.Objects.ApprovalAfeDetails>
+{
+	var baseUrl = $.url("portal");
+	var typeHint = "Aci.Flex.Plugins.AnsellAfe.Server.Objects.ApprovalAfeDetails";
+	var targetUrl = baseUrl + "api/commonafeapi/GetApprovalAfeDetails"+"?workflowId=" + workflowId;
+
+	return Aci.Flex.Portal.ServiceHelper.GetData<Aci.Flex.Plugins.AnsellAfe.Server.Objects.ApprovalAfeDetails>(targetUrl, typeHint, true);
+}
+
+export function ResolveGetApprovalAfeDetails(workflowId: string, resolveTo: KnockoutObservable<Aci.Flex.Plugins.AnsellAfe.Server.Objects.ApprovalAfeDetails>) : Q.Promise<boolean>
+{
+	  return GetApprovalAfeDetails(workflowId).then	((e) => 
+	  {
+		resolveTo(e); 
+		return true;
+	}, (f) => {return false;});
+}
+
 
 }
 

@@ -1,0 +1,2 @@
+DynamicWorkflow.g.xaml
+XamlStaticHelperNamespace._XamlStaticHelper

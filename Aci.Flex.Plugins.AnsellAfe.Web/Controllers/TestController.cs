@@ -11,6 +11,7 @@ namespace Aci.Flex.Plugins.AnsellAfe.Web.Controllers
     [ExportAsFlexPlugin(typeof(TestController), typeof(IFlexController), false)]
     public class TestController : BaseAnsellAfeController
     {
+        private Guid m_WorkflowId = new Guid("59517492-D9DD-467F-A2AC-6A0EEB03C1B4");
         public override string ControllerName { get { return "Test"; } }
 
         // GET: Test
@@ -22,6 +23,12 @@ namespace Aci.Flex.Plugins.AnsellAfe.Web.Controllers
 #else
             return this.RazorView();
 #endif
+        }
+
+        public ActionResult Approval()
+        {
+            return View("~/Views/Workflow/Approval.cshtml", new Aci.Flex.Server.Workflow.FlexActivityMetadata() { WorkflowInstanceId = m_WorkflowId });
+
         }
     }
 }
